@@ -1,0 +1,83 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--
+=======================================================================================
+ *      _______        _     _____           _       _     _        
+ *     |__   __|      | |   |_   _|         (_)     | |   | |       
+ *        | | ___  ___| |__   | |  _ __  ___ _  __ _| |__ | |_ ___  
+ *        | |/ _ \/ __| '_ \  | | | '_ \/ __| |/ _` | '_ \| __/ __| 
+ *        | |  __/ (__| | | |_| |_| | | \__ \ | (_| | | | | |_\__ \ 
+ *        |_|\___|\___|_| |_|_____|_| |_|___/_|\__, |_| |_|\__|___/ 
+ *                                              __/ |               
+ *                                             |___/ 
+ * Copyright ©  TechInsights 2013
+=======================================================================================
+  -->
+
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+
+    @*Set the viewport width to device width for mobile *@
+    <meta name="viewport" content="width=device-width" />
+
+    <title>JAMP | Loading...</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @*-----Add links to css files-----*@
+    @Styles.Render("~/Content/css")
+    @*<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" />*@
+    
+    @*-----Add links to js files----- *@
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/JAMP_head")
+
+</head>
+<body>
+    @*-----Layout structure----- *@
+
+    <!-- Content Wrapper -->
+    <div id="applicationHost">
+        @Html.Partial("_Splash-screen")
+    </div>
+
+    <!-- About modal -->
+    <div id="aboutModal" class="reveal-modal medium">
+        @Html.Partial("_About")
+    </div>
+
+    <!-- Signout modal -->
+    <div id="signoutModal" class="reveal-modal medium">
+        @Html.Partial("_Signout")
+    </div>
+
+
+    @*-----Additional links to js files----- *@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/foundation")
+    @Scripts.Render("~/bundles/JAMP_body")
+    <script src="~/signalr/hubs"></script>
+
+
+    @*-----Start foundation js----- *@
+    <script>
+        $(document).foundation();
+    </script>
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script type="text/javascript" src="~/App/durandal/amd/require.js" data-main="@Url.Content("~/App/main")"></script>
+    }
+    else
+    {
+        <script type="text/javascript" src="~/App/main-built.js"></script>
+    }
+
+</body>
+</html>

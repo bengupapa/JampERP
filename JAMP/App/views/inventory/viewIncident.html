@@ -1,0 +1,77 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="previous" data-bind="click: goBack">Incident List</a>
+            <a class="current" href="#">Incident Report</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Incident details form-->
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border" data-bind="with: incident">
+
+            <!-- Incident form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-warning-sign"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader"><span data-bind="text: dateName"></span></h4>
+                </div>
+            </div>
+
+            <!-- Incident form inputs-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Date Reported</label>
+                    <input type="text" data-bind="value: createdDate, enable: false" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Type</label>
+                    <input type="text" data-bind="value: type, enable: false" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Reported By</label>
+                    <input type="text" data-bind="value: employee().fullName, enable: false" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Notes</label>
+                    <textarea class="textarea-height" data-bind="value: notes, enable: false" placeholder="Any additional information..."></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <table class="table-full-width">
+                        <thead>
+                            <tr>
+                                <th class="tb60">Product Name</th>
+                                <th class="tb40">Quantity(Units)</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: productIncidents">
+                            <tr data-bind="with: product">
+                                <td class="tb60" data-bind="text: fullName"></td>
+                                <td class="tb40"><span data-bind=" text: $parent.quantity"></span> <span data-bind="    text: $parent.removed() ? ' Removed' : ' Added', css: { 'tag-red': $parent.removed(), 'tag-green': !$parent.removed() }"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

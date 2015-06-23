@@ -1,0 +1,27 @@
+/* 
+==========================================================
+	               Colour Variables
+========================================================== 
+*/
+
+//JAMP Colours
+$colour-green: #88C32F;			// JAMP green
+$colour-dark-blue:#003F60;		// JAMP dark blue
+$colour-light-blue:#01A7E2;		// JAMP light blue
+
+//Greys
+$colour-drak-grey:#6f6f6f;		// rgb 111
+$colour-grey:#808080;			// rgb 128 grey
+$colour-medium-grey:#A4A4A4;    // rgb 164
+$colour-light-grey:#D3D3D3;		// rgb 211 lightgrey
+
+// Backgrounds
+$colour-bg-black:#222222;						// Black background & text colour
+$colour-bg-light-black:#333333;					// Black background (lighter)
+$textured-bg: url(../Images/light_alu.png);		// Light aluminum
+$transparent-bg-white:rgba(255,255,255,0.5);	// White faded
+
+//Notification 
+$colour-red-notify:#BD362F;			//Light Red 
+$colour-green-notify:#51A351;		//Light green 
+$colour-orange-notify:#F89406;		//Light orange [rgb: 248, 148, 6]

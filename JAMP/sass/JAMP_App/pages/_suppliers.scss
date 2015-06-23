@@ -1,0 +1,74 @@
+/* 
+==========================================================
+					  Supplier Pages
+==========================================================
+*/
+/* 
+Variables
+------------------------------------------------------- */
+
+//Order container list colour
+$order-con-list-left-colour:				$colour-light-blue;
+$order-con-list-left-right:					$colour-bg-black;
+$order-con-note-colour:						white;
+$order-con-note-outstanding-bg-colour:		$colour-red-notify;
+$order-con-note-completed-bg-colour:		$colour-green-notify;
+$order-con-note-partial-bg-colour:			$colour-orange-notify;
+/* 
+Supplier Order item container
+------------------------------------------------------- */
+.dP
+{
+    color: $order-con-list-left-colour;
+    font-weight:normal;
+    font-size:1em;
+    line-height:1.6;
+    text-rendering:optimizeLegibility
+}
+.dP2
+{
+	@extend .dP;
+    color: $order-con-list-left-right  
+}
+.order-outstanding, .order-completed, .order-partial {
+	color:$order-con-note-colour !important;
+	padding: 0 5px;
+}
+.order-outstanding{
+	background-color: $order-con-note-outstanding-bg-colour;
+}
+.order-completed{
+	background-color: $order-con-note-completed-bg-colour;
+}
+.order-partial {
+	background-color: $order-con-note-partial-bg-colour;
+}
+
+.item-edit-supplier {
+  width: 100%;
+  button, .button {
+    float: left;
+    background-color: $item-edit-btn-colour-bg;
+    color: $item-edit-btn-colour;
+    width: 100%;
+    text-align: center;
+	border:none;
+	margin:0;
+    border-top: $item-edit-btn-border;
+    padding: 5px 0;
+
+    &:hover {
+      background-color:$item-edit-btn-colour-bg-hover;
+    }
+    &:first-child:not(.signle-button) {
+      border-right: $item-edit-btn-border;
+    }
+	&.disabled, &[disabled] {
+		 background-color: grey;
+	}
+  }
+}
+.calendar-icon-center i{
+	margin: 5px auto 0 auto;
+	font-size: 20px;
+}

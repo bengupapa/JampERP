@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "EmailSent";
+}
+
+<div class="mp-body bg-textured">
+    <div class="row">
+        <div class="large-4 small-10 columns">
+            <h3 class="subheader">@ViewBag.message</h3>
+
+            <div >
+                <a class="button small" href="@Url.Action("Login", "Account")">OK</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿<div class="messageBox" style="max-width: 320px">
+    <div class="modal-header">
+        <h3>Amount Received</h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="row collapse">
+                <div class="small-2 columns">
+                    <span class="prefix">R</span>
+                </div>
+                <div class="small-10 columns">
+                    <input type="text" data-bind="enable: false, value: requiredAmount, css: { 'item-complete': canSave(), 'item-over': !canSave() }" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row collapse">
+                <div class="small-2 columns">
+                    <span class="prefix">R</span>
+                </div>
+                <div class="small-8 columns">
+                    <input type="text" data-bind="enable: false, value: amount" placeholder=" Enter amount" />
+                </div>
+                <div class="small-2 columns">
+                    <span class="postfix" data-bind="click: removeNumber"><i class="icon-arrow-left"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '1')">1</button></div>
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '2')">2</button></div>
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '3')">3</button></div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '4')">4</button></div>
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '5')">5</button></div>
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '6')">6</button></div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '7')">7</button></div>
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '8')">8</button></div>
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '9')">9</button></div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '.'), disable: disablePeriod">.</button></div>
+            <div class="small-8 columns btn-full-width">
+                <button data-bind="click: addNumber.bind($data, '0')">0</button></div>
+        </div>
+
+        <div class="modal-footer">
+            <button data-bind="click: cancel">Cancel</button>
+            <button data-bind="enable: canSave, click: sendAmount">Done</button>
+        </div>
+    </div>
+</div>

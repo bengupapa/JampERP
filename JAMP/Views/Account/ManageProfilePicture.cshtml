@@ -1,0 +1,135 @@
+﻿@model JAMP.ViewModels.EmployeeRegistrationViewModel
+@{
+    ViewBag.Title = "Manage Account";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<style>
+    
+</style>
+@using (Html.BeginForm("UploadPicture", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+     <div class="mp-body  pageBodyHeight">
+    <div class="row ">
+        <div id="homeSection" class="sectionHeight">
+            <div class="row overflowed" > 
+                <div class="mainPanelProfilePage  widthFormatter small-10 small-centered large-12 large-centered columns overflowed bg-textured">
+                    <div class="encloser">
+                        <div class="ellipse small-6 columns">
+                            <div class="picCircle">
+                                <img class="proPicImage" src="@Model.emp.ImageLocation"/>
+                            </div>
+                            <div class="small-6 columns">                         
+                                <h5 class="subheader">@Model.emp.RoleName</h5>
+           
+                                <ul id="profileDetailsList">
+                                    <li>@Model.emp.FirstName</li>
+                                    <li></li>
+                                    <li>@Model.emp.LastName</li>
+                                </ul>
+                                <span class="noMobile">@Model.emp.Email</span>
+                            </div>
+                            
+                        </div>
+             
+                    </div> 
+                    <div class="mainPanelFooter">
+                   
+                        <div class="large-6 columns small-12">
+                            <div class="large-6">
+                                <input class="button small" type="file" name="fileUpload" accept="image/*" style="height:35px"/>
+                            </div>
+                        </div>
+
+                        <div class="large-6 columns small-12">
+                            <div class="right">
+                                <ul id="FooterList">
+                                    <li>
+                                        <input class="button small" type="submit" value="Submit" />
+                                    </li>
+                                    <li>
+                                        <a class="button small" href="/App/Jamp#/Profile">Cancel</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>               
+                </div>
+            </div>
+
+            <div class="row">
+
+                    <div class="large-4 columns small-12">
+                        
+                        <div class="marginControl2 block widthDefined mobileFormat bg-textured">
+                            <div class="inBoxMarging">
+                                <i class="icon-user icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Your details</a></h4>
+                                
+                                <h6>Full name</h6>
+                                <p class="inBoxText">@Model.emp.FirstName &nbsp @Model.emp.LastName</p>
+                                <h6>Contacts</h6>
+                                <p class="inBoxText">Tel. @Model.emp.Contacts <br /> Email. @Model.emp.Email</p>  
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="large-4 columns small-12">
+                        
+                        <div class="marginControl2 block widthDefined mobileFormat bg-textured">
+                            <div class="inBoxMarging">
+                                <i class="icon-building icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Business Details</a></h4>
+                                <h6>Enterprise name</h6>
+                                <p class="inBoxText">@Model.emp.Business.BusinessName</p>
+                                <h6>Contacts</h6>
+                                <p class="inBoxText">Tel. @Model.emp.Business.BusinessContacts <br /> Email. @Model.emp.Business.BusinessEmail</p>
+                                <h6>Address</h6>
+                                <p class="inBoxText">@Model.emp.Business.BusinessStreet <br />@Model.emp.Business.BusinessCity <br /> @Model.emp.Business.BusinessPostalCode</p>     
+                            </div>
+                        </div>
+                    </div>
+                <div class="large-4 columns small-12">
+                    
+                        <div class="marginControl2 block2 widthDefined mobileFormat bg-textured">
+                            <div class="inBoxMarging">
+                                <i class="icon-link icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Quick links</a></h4>
+                                <h6>Quick access menu</h6>
+                         
+                                <h5 class="subheader large-12 columns con-icon"><a href="@Url.Action("Index", "Home")">Go to Home</a></h5>
+    
+                                <br />
+                                
+                                <h5 class="subheader large-12 columns con-icon"><a href="/App/Jamp">Enter Jamp System</a></h5>   
+                           
+                                <br />
+
+                                <h5 class="subheader large-12 columns con-icon"><a href="@Url.Action("support", "Home")">Go to support</a> </h5>
+
+                            </div>
+                        </div>
+                 
+                </div>
+            </div>
+
+            <div style="height:20px">
+
+            </div>
+        </div>
+    </div>
+</div>
+      
+}
+
+
+
+@section Scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval");
+
+    <script>
+        $("#fileLoader").click();
+    </script>
+
+}

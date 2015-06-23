@@ -1,0 +1,185 @@
+/* 
+==========================================================
+					  Inventory Pages
+==========================================================
+*/
+/* 
+Variables
+------------------------------------------------------- */
+
+//Add item button
+$add-item-button-bg:						$transparent-bg-white;
+$add-item-button-colour:					$colour-green;
+$add-item-button-border:					2px solid $colour-green;
+
+//Add item button hover effects
+$add-item-button-border-colour-hover:		$colour-light-blue;
+$add-item-button-colour-hover:				$colour-light-blue;
+
+//Item container
+$item-con-name-colour:						$colour-light-blue;
+$item-con-attribute-colour:					$colour-bg-black;
+
+//Item edit
+$item-edit-btn-colour:						white;
+$item-edit-btn-colour-bg:					$colour-dark-blue;
+$item-edit-btn-colour-bg-hover:				$colour-light-blue;
+$item-edit-btn-border:						1px solid $colour-grey;
+
+/* 
+Turnover rate table
+------------------------------------------------------- */
+.table-full-width {
+  width: 100%;
+  &:not(.with-margin){
+		margin: 0;
+	}
+  .tb25 {
+    width: 25%;
+  }
+  .tb30 {
+    width: 30%;
+  } 
+  .tb40 {
+    width: 40%;
+  }
+  .tb50 {
+    width: 50%;
+  }
+  .tb60 {
+    width: 60%;
+  } 
+  .tb70 {
+    width: 60%;
+  }
+}
+.currency-align {
+	text-align: right;
+}
+
+
+/* 
+Search bar
+------------------------------------------------------- */
+.item-search {
+  input {
+    height: 45px;
+    font-size: 18px;
+  }
+  span {
+    height: 45px;
+    line-height: 43px;
+    font-size: 18px;
+  }
+}
+
+/* 
+Item container
+------------------------------------------------------- */
+.con.item-con {
+  padding: 0;
+}
+.item-info-con {
+  padding-left: 10px;
+  cursor:pointer;
+  p, h4 {
+    margin: 0;
+  }
+  p{
+	color: $item-con-name-colour;
+	span{
+		color: $item-con-attribute-colour;
+	}
+	span.large{
+		white-space: nowrap;
+		overflow: hidden;
+		position: absolute;
+		max-width: 65%;
+	}
+  }
+}
+.item-edit {
+  width: 100%;
+  button, .button {
+    float: left;
+    background-color: $item-edit-btn-colour-bg;
+    color: $item-edit-btn-colour;
+    width: 100%;
+    text-align: center;
+	border:none;
+	margin:0;
+    border-top: $item-edit-btn-border;
+    padding: 5px 0;
+	&:not(.signle-button){
+		width: 50%;
+	}
+    &:hover {
+      background-color:$item-edit-btn-colour-bg-hover;
+    }
+    &:first-child:not(.signle-button) {
+      border-right: $item-edit-btn-border;
+    }
+	&.disabled, &[disabled] {
+		 background-color: grey;
+	}
+  }
+}
+
+
+
+/* 
+Add item button
+------------------------------------------------------- */
+.add-item-btn{
+	background-color: $add-item-button-bg;
+	border: $add-item-button-border;
+	padding: 20px;
+    cursor: pointer;
+	text-align:center;
+	color: $add-item-button-colour;
+	margin-bottom: emCalc(20px);
+	font-size:emCalc(40px);
+	&:hover {
+    border-color: $add-item-button-border-colour-hover;
+	color: $add-item-button-colour-hover;
+	}
+	> {
+    :first-child {
+      margin-top: 0;
+    }
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+@media only screen and (max-width: $screen-breakpoint-width) {
+    .add-item-btn{
+        padding: 10px;
+    }
+}
+
+/* 
+Override foundation moving last box to the right
+------------------------------------------------------- */
+[class*="column"] + [class*="column"]:last-child {
+    float: left;
+  }
+
+/* 
+Quantity increase and decrease chevrons
+------------------------------------------------------- */
+.amount-chevron i{
+	font-size:emCalc(25px);
+}
+.amount-quantity{
+	font-size:emCalc(18px);
+	padding: 0 5px;
+}
+.amount-quantity, .amount-chevron {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	user-select: none;
+}

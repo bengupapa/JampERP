@@ -1,0 +1,193 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="previous" href="#/Inventory_Categories">Categories</a>
+            <a class="previous" data-bind="click: goBack">Product List</a>
+            <a class="current" href="#">Product Form</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Product details form-->
+<div class="row">
+    <div class="large-8 columns">
+        <div class="con con-border" data-bind="with: product">
+            <span class="changed-state-tag left" data-bind=" visible: $parent.hasChanges">Changed</span>
+
+            <!-- Product form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tags"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader" data-bind="text: fullName"></h4>
+                </div>
+            </div>
+
+            <!-- Product form inputs-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <h6 class="subheader">Created: <span data-bind="text: createdDate"></span></h6>
+                    <label>Brand</label>
+                    <input type="text" data-bind="value: brandName, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Name</label>
+                    <input type="text" data-bind="value: productName, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Size</label>
+                    <input type="text" data-bind="value: size, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Quantity</label>
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: quantity, enable: false">
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix">Units</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="large-6 columns">
+                    <label>Re-Order Level</label>
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: reorderLevel, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix">Units</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Cost Price</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: costPrice, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="large-6 columns">
+                    <label>Selling Price</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: sellingPrice, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="large-12 columns">
+                    <label>Category</label>
+                    <select data-bind="options: $parent.categoryList, optionsText: 'categoryName', value: category, valueUpdate: 'afterkeydown', enable: $parent.canEdit">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Description</label>
+                    <textarea class="textarea-height" data-bind="value: description, valueUpdate: 'afterkeydown', enable: $parent.canEdit"></textarea>
+                </div>
+            </div>
+
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <p>On Special</p>
+                    </div>
+                    <div class="small-4 columns">
+                        <div class="switch small">
+                            <input id="specialNo" name="special-switch" type="radio" value="No" data-bind="checked: special, enable: $parent.canEdit">
+                            <label for="specialNo" onclick="">Off</label>
+
+                            <input id="specialYes" name="special-switch" type="radio" value="Yes" data-bind="checked: special, enable: $parent.canEdit">
+                            <label for="specialYes" onclick="">On</label>
+
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button options-->
+            <div data-bind="visible: $parent.canEdit">
+                <button data-bind="click: $parent.cancel, enable: $parent.canSave">
+                    <i class="icon-undo"></i>Cancel</button>
+                <button data-bind="click: $parent.save, enable: $parent.canSave">
+                    <i class="icon-save"></i>Save</button>
+                <button data-bind="click: $parent.deleteProduct, enable: $parent.canDelete">
+                    <i class="icon-trash"></i>Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product stats-->
+    <div class="large-4 columns" data-bind="if: user().roleName() != 'Cashier'">
+        <div class="con con-border" data-bind="with: product">
+
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-bar-chart"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Stats</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table-full-width">
+                <tbody >
+                    <tr>
+                        <td class="tb50">Turnover Rate:</td>
+                        <td class="tb50" data-bind="text: turnOverRate"></td>
+                    </tr>
+                    <tr>
+                        <td class="tb50">Spare:</td>
+                        <td class="tb50" data-bind="text: spareStock"></td>
+                    </tr>
+                    <tr>
+                        <td class="tb50">Mark up:</td>
+                        <td class="tb50" data-bind="text: profitMargin() != null ? profitMargin() + ' %' : 'N/A'"></td>
+                    </tr>
+                     <tr>
+                        <td class="tb50">Last Sold:</td>
+                        <td class="tb50" data-bind="text: lastSold() != null ? lastSold() : 'Never'"></td>
+                    </tr>
+                    <tr>
+                        <td class="tb50">Days till reorder:</td>
+                        <td class="tb50" data-bind="text: closeReorder() == 0 ? 'N/A' : closeReorder()"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+

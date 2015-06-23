@@ -1,0 +1,50 @@
+﻿@model JAMP.Models.AccountModels.LoginModelpasswordRecovery
+@{
+    ViewBag.Title = "LoginRecovery";
+}
+
+<div class="mp-body bg-textured">
+    <div class="row container">
+
+        <!-- logo container -->
+        <div class="logo-container">
+            <a href="#" class="logo"></a>
+        </div>
+
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+      
+            <!-- login form details -->
+            <div class="lgoin_form">
+
+                <div class="" style="margin: 20px; margin-top: 110px">
+
+                    <div class="">
+                        <h3 class="subheader">Password recovery</h3>
+                        <p style="font-size: x-small">Please enter your log in email address. your password will be sent to this email in few seconds</p>
+                    </div>
+
+                    <div class="">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email)
+                    </div>
+
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="left">
+                               <input class="button small" type="submit" id="submit" value="Submit"/>                                          
+                            </div> 
+                            <div class="right">
+                                <a class="button small" href='@Url.Action("login","Account")'>Cancel</a>
+                            </div> 
+                        </div>                 
+                    </div>
+
+                </div>
+                    @Html.ValidationSummary()
+            </div>                    
+        }
+    </div>
+</div>

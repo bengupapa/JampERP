@@ -1,0 +1,213 @@
+/* 
+==========================================================
+					  Top Bar
+==========================================================
+*/
+
+/* 
+Top Bar Variables
+------------------------------------------------------- */
+
+// Background color for the top bar
+$topbar-bg:                            $colour-dark-blue;
+
+// Height
+$topbar-height:                        emCalc(45px);
+$topbar-line-height:                   emCalc(50px);
+
+// Control Input height for top bar
+$topbar-input-height:                  emCalc(39px);
+
+// Set the link colours and styles 
+$topbar-link-colour:                   $colour-light-grey;
+$topbar-link-colour-hover:             $colour-light-blue;
+$topbar-link-colour-hover-green:	   $colour-green;
+
+//Icon and font size
+$topbar-username-font-size:            emCalc(14px);
+$topbar-icon-size:					   emCalc(24px);
+$topbar-icon-menu-size:                emCalc(30px);
+
+// Transitions and breakpoint styles
+$topbar-transition-speed:              300ms !default;
+$topbar-breakpoint:                    emCalc(940px) !default; 
+$topbar-media-query:                   "only screen and (min-width: #{$topbar-breakpoint})" !default;
+
+// Divider Styles
+$topbar-divider-border:				   solid 1px $colour-light-grey !default;
+
+
+
+.topbar {
+  top: 0;
+  background-color: $topbar-bg;
+  border-bottom: 1px solid;
+  border-color: $colour-grey;
+  height: $topbar-height;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  ul {
+    display: inline;
+    line-height: $topbar-line-height;
+    li {
+      display: inline;
+      float: left;
+      a {
+        display: block;
+        width: 100%;
+        color: $colour-light-grey;
+        padding: 0 emCalc(15px);
+        font-weight: bold;
+        height: $topbar-height;
+        &:hover {
+          color: $colour-light-blue;
+        }
+		i {
+		font-size: $topbar-icon-size;
+		}
+      }
+    }
+    .divider {
+      border-left: $topbar-divider-border;
+      clear: none;
+      height: emCalc(25px);
+      margin-top: emCalc(10px);
+      width: 0;
+    }
+  }
+}
+
+/* 
+Left side Logo & toogle menu
+------------------------------------------------------- */
+
+.topbar-logo {
+  line-height: $topbar-line-height;
+  width: auto;
+  left: 0;
+  float: left;
+  img {
+    display: none !important;
+  }
+}
+
+#topbar-left{
+float: left;
+}
+#menu-toogle {
+  padding: 0 emCalc(10px);
+  height: inherit;
+  float: left;
+  font-size: $topbar-icon-menu-size;
+  a {
+    color: $colour-light-grey;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:hover {
+      color: $colour-green;
+    }
+  }
+}
+
+@media only screen and (min-width: 58.75em) {
+  .topbar-logo {
+    width: emCalc(190px);
+    line-height: inherit;
+    img {
+      display: inherit !important;
+      height: emCalc(40px);
+      width: emCalc(112px);
+      margin: emCalc(2px) emCalc(30px);
+    }
+  }
+}
+
+/* 
+Middle Notifications
+------------------------------------------------------- */
+#topbar-notify {
+  float: left !important;
+  left: 0;
+}
+
+/* 
+Right Side Profile & signout
+------------------------------------------------------- */
+#topbar-profile {
+  float: right !important;
+}
+
+
+#user-name {
+  float: left;
+  line-height: emCalc(16px);
+  font-size: $topbar-username-font-size;
+  margin-top: emCalc(7px);
+  p {
+    color: #A4A4A4;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#user-profile-img {
+  display: block;
+  height: $topbar-height;
+  width: emCalc(35px);
+  line-height: $topbar-line-height;
+  float: left;
+  padding: emCalc(5px) emCalc(7px);
+  position: relative;
+  img, i {
+    position: absolute;
+    height: 35px;
+    min-width: 35px;
+	line-height:35px;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
+.edit-profile {
+  opacity: 0;
+  text-align: center;
+  color: $colour-green;
+  background-color: rgba(36, 36, 36, 0.4);
+}
+
+.user-profile:hover {
+  .edit-profile {
+    opacity: 1;
+  }
+  #user-name {
+    color: $colour-green;
+    p {
+      color: $colour-green;
+    }
+  }
+}
+
+#logout-link:hover {
+  color: $colour-green;
+}
+
+/* 
+Right Side Profile & signout
+------------------------------------------------------- */
+#spinner {
+	height:35px;
+	width:35px;
+	visibility:hidden;
+	img{
+		position:absolute;
+		height:35px;
+		width:35px;
+		margin-top:5px;
+	}
+}
+#spinner.active {
+	visibility:visible;
+}

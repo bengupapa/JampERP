@@ -1,0 +1,94 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Summary</a>
+        </nav>
+    </div>
+</div>
+<div class="row">
+        <div class="large-15 large-centered columns">
+<div id="ufcGaugeChart" style="width:100%"></div>
+            </div>
+    </div>
+
+<!-- Button navigation options-->
+<div class="row option-btn">
+    <div class="large-4 small-6 columns">
+        <a href="#/Customers_Create">
+            <p>Add Customer</p>
+        </a>
+    </div>
+    <div class="large-4 small-6 columns">
+        <a href="#/Customers_List">
+            <p>Customers</p>
+        </a>
+    </div>
+    <div class="large-4 small-12 columns">
+        <a href="#/Customers_Account_List">
+            <p>Accounts</p>
+        </a>
+    </div>
+</div>
+
+<!-- Content Area first row-->
+<div class="row">
+    <!-- Info panel: stock turnover rate-->
+    <div class="large-8 large-centered columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-male"></i><i class="icon-female"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Account: Recent Activity</h4>
+                </div>
+            </div>
+             <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Customer Name</th>
+                        <th class="tb30">Created By</th>
+                        <th class="tb30">Date Created</th>
+                    </tr>
+                </thead>
+            </table>
+            <h5 class="subheader">New Customers </h5>
+            <table class="table-full-width">
+                <!-- ko foreach: newcustomers -->
+                <tbody>
+                    <tr>
+                        <td class="tb40" data-bind ="text:fullName"></td>
+                        <td class="tb30" data-bind="text: employee().fullName"></td>
+                        <td class="tb30" data-bind ="text: createdDate"></td>
+                    </tr>
+                </tbody>
+                <!-- /ko -->
+            </table>
+            <h5 class="subheader">Highest Balance</h5>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Account Name</th>
+                        <th class="tb30">Balance Owing</th>
+                        <th class="tb30">Payment Date</th>
+                    </tr>
+                </thead>
+            </table><table class="table-full-width">
+            <!-- ko foreach: accountslist -->
+                <tbody>
+                    <tr>
+                        <td class="tb40" data-bind="text: customerAccount.accountName"> </td>
+                        <td class="tb30"> R<span data-bind ="text: customerAccount.amountOwing"></span></td>
+                        <td class="tb40" data-bind ="text: customerAccount.paymentDate"></td>
+                    </tr>
+                </tbody>
+                <!-- /ko -->
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,46 @@
+/* 
+==========================================================
+	               Overrides
+========================================================== 
+*/
+
+// emCalc(#px) foundation fuction
+$em-base: 16px !default;
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+//Foundation _type.scss
+$anchor-font-color:					$colour-light-blue;
+$anchor-font-color-hover:			$colour-green;
+
+
+//Foundation _button.scsss
+//$button-border-color:			$colour-dark-blue;
+
+//Remove foundation css
+$include-html-nav-classes:			false;	//Breadcrumbs
+$include-html-top-bar-classes:		false;	// Top bars
+//$include-html-button-classes:	false;	//Buttons
+
+//Fill browser height
+html,
+  body { 
+  height:100%
+  }
+
+.mp-body{
+	padding-top:50px;
+}
+.bg-textured {
+	background: $textured-bg;
+	height: 100%;
+}
+
+// Shows the rquired feilds
+.required-feild label:after 
+{
+    content: "*";
+    font-weight: bold;
+    color: red; 
+}

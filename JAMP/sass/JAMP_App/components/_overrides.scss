@@ -1,0 +1,64 @@
+/* 
+==========================================================
+	               Overrides
+========================================================== 
+*/
+
+// emCalc(#px) foundation fuction
+$em-base: 16px !default;
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+//Foundation _type.scss
+$anchor-font-color:					$colour-green;
+$anchor-font-color-hover:			$colour-light-blue;
+
+//Foundation _breadcrumbs.scss
+$crumb-bg:						$transparent-bg-white;
+$crumb-padding:					emCalc(4px) emCalc(14px) emCalc(4px);
+$crumb-font-size:				emCalc(18px);
+$crumb-font-color:				$colour-medium-grey;
+$crumb-font-color-current:		$colour-green;
+$crumb-font-color-unavailable:	darken($colour-light-grey, 10%);
+$crumb-font-transform:			none;
+$crumb-slash-color:				$colour-grey;
+
+//Foundation _button.scsss
+$button-border-color:			$colour-dark-blue;
+
+//Remove foundation css
+$include-html-nav-classes:			false;	// Breadcrumbs
+$include-html-button-classes:		false;	// Buttons
+$include-html-global-classes:		true;	// Global defaults
+$include-html-inline-list-classes:	true;	// Lists
+$include-html-type-classes:			true;	// Fonts and text styles
+$include-html-grid-classes:			true;	// Grids
+$include-html-visibility-classes:	true;	// Visiability of html elements
+$include-html-form-classes:			true;	// Form styling
+$include-html-custom-form-classes:	false;	// Custom form styling
+$include-html-media-classes:		true;	// Media queries
+$include-html-section-classes:		false;	// Sections
+$include-html-orbit-classes:		false;	// Orbit
+$include-html-reveal-classes:		true;	// Reveal modal
+$include-html-joyride-classes:		false;	// Joyride 
+$include-html-clearing-classes:		false;	// Clearing
+$include-html-alert-classes:		false;	// Alert messages
+$include-html-top-bar-classes:		false;	// Top bars
+$include-html-label-classes:		true;	// Labels
+$include-html-panel-classes:		false;	// Panels
+$include-html-pricing-classes:		false;	// Pricing Tables
+$include-html-progress-classes:		false;	// Progress Bars
+$include-html-magellan-classes:		false;	// Magellan
+$include-html-tooltip-classes:		false;	// Tooltips
+
+//Fill browser height
+html,
+body { 
+	height:100%
+}
+
+// So header going over 2 lines
+.subheader:not(.header-wrap) {
+	white-space: nowrap;
+}

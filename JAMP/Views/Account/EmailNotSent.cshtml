@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "EmailNotSent";
+}
+
+<div class="mp-body bg-textured">
+    <div class="row">
+        <div class="large-4 small-10 columns">
+            <h3 class="subheader">@ViewBag.message</h3>
+
+            <div >
+                <a class="button small" href="@Url.Action("BusinessRegister", "Account")">Register now</a> &nbsp <a class="button small" href="@Url.Action("Index", "Home")">No thanks</a>
+            </div>
+        </div>
+    </div>
+</div>

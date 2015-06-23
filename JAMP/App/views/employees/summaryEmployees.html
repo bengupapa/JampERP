@@ -1,0 +1,66 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row full-width">
+    <div class="large-12 columns content-name">
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Summary</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Search & button options -->
+<div class="row">
+    <div class="large-11 large-centered columns">
+        <div class="small-12 large-9 columns">
+            <div class="row collapse item-search">
+                <div class="small-10 columns">
+                     <input type="text" data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Search for employee">
+                </div>
+                <div class="small-2 columns">
+                    <span class="postfix"><i class="icon-search"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 large-3 columns">
+            <a href="/Account/Register" class="button">Add Employee</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- ko foreach: filteredItems -->
+    <div class="large-6 columns">
+        <div class="large-12 columns con item-con">
+            <div class="item-info-con">
+                <div class="row">
+                    <div class="small-8 columns">
+                        <h4 class="subheader animated" data-bind="text: fullName"></h4>
+                    </div>
+                    <div class="small-4 columns">
+                        <div class="right">
+                            <p data-bind="text: online() ? 'Online' : 'Offline', css: { 'tag-red': !online(), 'tag-green': online() }"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p>Role: <span data-bind="text: roleName"></span></p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p>Registered: <span data-bind="text: displayDate"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <p>Last Seen: <span data-bind="text: lastSeen() != null ? lastSeen() : 'Never', css: { 'last-seen-online': online(), 'last-seen-offline': !online() }"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+
+<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: emptyList">..No results..</h5>
+</div>

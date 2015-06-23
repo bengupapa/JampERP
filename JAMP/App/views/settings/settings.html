@@ -1,0 +1,128 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row full-width">
+    <div class="large-12 columns content-name">
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">User Settings</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Setting options-->
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border settings-list" data-bind="with: user">
+            <span class="changed-state-tag left" data-bind=" visible: $parent.hasChanges">Changed</span>
+
+            <!-- Auto Update-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader">Updates</h4>
+                </div>
+            </div>
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <p>Automatic Updates</p>
+                    </div>
+                    <div class="small-4 columns">
+                        <div class="switch small">
+                            <input id="autoUpdateOff" name="autoUpdate-switch" type="radio" value="Off" data-bind="checked: settings().autoUpdate">
+                            <label for="autoUpdateOff" onclick="">No</label>
+
+                            <input id="autoUpdateOn" name="autoUpdate-switch" type="radio" value="On" data-bind="checked: settings().autoUpdate">
+                            <label for="autoUpdateOn" onclick="">Yes</label>
+
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Local Data-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader">Local Data</h4>
+                </div>
+            </div>
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <p>Get clean data from server</p>
+                    </div>
+                    <div class="small-4 columns">
+                        <button data-bind="click: $parent.forceDataRefresh">Refresh</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader">Help</h4>
+                </div>
+            </div>
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <p>Summary Descriptions</p>
+                    </div>
+                    <div class="small-4 columns">
+                        <div class="switch small">
+                            <input id="descpOff" name="descp-switch" type="radio" value="Off" data-bind="checked: settings().descriptions">
+                            <label for="descpOff" onclick="">Off</label>
+
+                            <input id="descpOn" name="descp-switch" type="radio" value="On" data-bind="checked: settings().descriptions">
+                            <label for="descpOn" onclick="">On</label>
+
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disable business-->
+            <!-- ko if: roleName() != 'Cashier' -->
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader">Security</h4>
+                </div>
+            </div>
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <p>Disable Sales</p>
+                    </div>
+                    <div class="small-4 columns">
+                        <div class="switch small">
+                            <input id="busdisOff" name="busdis-switch" type="radio" value="Off" data-bind="checked: business().disableSales">
+                            <label for="busdisOff" onclick="">Off</label>
+
+                            <input id="busdisOn" name="busdis-switch" type="radio" value="On" data-bind="checked: business().disableSales">
+                            <label for="busdisOn" onclick="">On</label>
+
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- Button options-->
+             <!-- ko if: $parent.hasChanges -->
+            <hr class="divider-small-margin"/>
+            <div class="large-7 large-centered columns">
+                <button class="normal-btn" data-bind="click: $parent.cancel, enable: $parent.canSave">
+                    <i class="icon-undo"></i>Cancel</button>
+                <button class="normal-btn" data-bind="click: $parent.save, enable: $parent.canSave">
+                    <i class="icon-save"></i>Save</button>
+
+            </div>
+             <!-- /ko -->
+        </div>
+    </div>
+</div>

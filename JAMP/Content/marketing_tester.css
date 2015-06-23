@@ -1,0 +1,506 @@
+﻿/* 
+==========================================================
+		!!!! Test CSS Code Goes Here !!!
+    *Please leave some comments as to what it does
+    *DO NOT CHANGE THE CSS IN Marketing_Layout.css 
+     !!  IT WILL BE OVERRIDDEN ON COMPILE OF SCSS   !!
+==========================================================
+
+*/
+/* 
+==========================================================
+			  Blocks and Section Panels
+==========================================================
+*/
+.blockImage 
+{
+    height: 35px;
+    width: 35px;
+    margin-top: -10px;
+}
+
+.blockImageDiv 
+{
+    margin-top: 12px;
+}
+.mainPanelIcon
+{
+    height:22px; 
+    width:22px;
+}
+.regBtn
+{
+border-radius:75px; 
+border:1px solid #CE2029 ; 
+background-color:#CE2029; 
+height:25px; 
+width:105%; 
+}
+.regBtn:hover
+{
+background-color:deepskyblue; 
+
+}
+
+.blockCaption 
+{
+    display: inline;
+}
+
+.mainPanel 
+{
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid deepskyblue;
+}
+.mainPanelProfilePage 
+{
+    height: 275px;
+    background-color: #fff;
+    border: 1px solid deepskyblue;
+}
+.encloser
+{
+   height: 85%;
+}
+#mainPanelFooterList li 
+{
+    display:inline-block
+}
+.mainPanelFooter 
+{
+    margin-left:0px;
+    margin-right:0px;
+    margin-bottom:0px;
+    height:15%;
+}
+#FooterList li 
+{
+    display:inline-block
+}
+
+.panelContainer 
+{
+    margin-left: 19px;
+    width: 97%;
+}
+
+.marginControl 
+{
+    height: 150px;
+}
+.marginControl2 
+{
+    height:315px
+}
+
+.aboutPanel 
+{
+    height: 482px;
+}
+
+.inBoxText {
+    font-size: smaller;
+}
+
+.inBoxMarging 
+{
+    margin: 0px 8px;
+}
+
+em 
+{
+    color: #88c32f;
+}
+
+.topBanner 
+{
+    height: 160px;
+    background-color: #003f60;
+    border: 1px solid deepskyblue;
+}
+
+.sectionBanner 
+{
+    height: 80px;
+    border: 1px solid deepskyblue;
+    clear: both;
+    top: 50px;
+    background-color: #003f60;
+    /*min-width: 300px;*/
+    margin-left: auto;
+    overflow: hidden;
+    margin-right: auto;
+}
+
+.sectionButton 
+{
+    float: right;
+    margin-right: 5px;
+    margin-top: -5px;
+}
+
+.sectionCaption 
+{
+    color: #003f60;
+}
+
+
+
+.proPicImage 
+{
+    height: 120px;
+    width: 120px;
+}
+
+.heightDefined 
+{
+    height: 150px;
+}
+
+.heightDefined2 
+{
+    height: 40px;
+}
+
+.widthDefined 
+{
+    width: 30%;
+}
+
+.centered 
+{
+    text-align: center;
+}
+
+.overflowed 
+{
+    overflow: hidden;
+}
+
+.aboutBlock 
+{
+}
+
+.block 
+{
+    border: 1px solid deepskyblue;
+    clear: both;
+    top: 50px;
+    position: relative;
+    background-color: white;
+    min-width: 300px;
+    margin-left: auto;
+    overflow: hidden;
+    margin-right: auto;
+}
+.block2 
+{
+    border: 1px solid deepskyblue;
+    clear: both;
+    top: 50px;
+    position: relative;
+    background-color: white;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block:hover 
+{
+    border: 1px solid #88c32f;
+    color: #01a7e2;
+}
+
+.block:hover a 
+{
+    color: #88c32f;
+}
+
+a 
+{
+    color: #003f60;
+    text-decoration: none;
+    line-height: inherit;
+}
+
+.block:hover .con-icon 
+{
+    color: #01a7e2;
+}
+#con-img 
+{
+    height:45px;width:45px
+}
+.imgIcon 
+{
+    height: 27px;
+    width: 27px;
+}
+
+.positioned 
+{
+    margin-top: -4px;
+}
+
+.ellipse 
+{
+    border-radius: 99px;
+    background-color: white;
+    margin-top: 20px;
+    height: 120px;
+    width: 455px;
+    overflow: hidden;
+    border: 1px solid deepskyblue;
+}
+
+.picCircle 
+{
+    border-radius: 99px;
+    background-color: white;
+    margin-top: 0px;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    float: left;
+    margin-left: -9px;
+}
+
+.details 
+{
+    font-size: small;
+}
+
+.orbit-container 
+{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: whitesmoke;
+}
+
+.revealFont 
+{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.orbit-container .orbit-slides-container img
+{
+    display: block;
+    max-width: 100%;
+    height: 100%;
+}
+
+.orbitImage 
+{
+    width: 100%;
+    height: 100%;
+}
+
+.orbit-container .orbit-slides-container > * 
+{
+    position: relative;
+    margin-left: 0;
+    float: left;
+    height: 100%;
+}
+
+.profileModal 
+{
+    border: 1px solid #88c32f;
+    width: 260px;
+}
+
+    .aboutCircle 
+    {
+        border-radius:99px;
+        height:140px;
+        width:140px;
+        overflow:hidden;
+        margin-left:25%;
+        margin-top:1.5%;
+        background-color:white
+    }
+    .uct_techInsights_Img 
+    {
+        height:150px; 
+        width:290px;
+        margin-left:-50%;
+        margin-top:-2.6%
+    }
+    #openBoxImg {
+        height:140px; 
+        width:270px;
+        margin-left:5%;
+        margin-top:8%;
+    }
+/* 
+==========================================================
+					  Top Bar
+==========================================================
+*/
+
+.topbar-market {
+    top: 0;
+    background-color: #003f60;
+    border-bottom: 1px solid;
+    border-color: gray;
+    height: 2.8125em;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+}
+    /* line 51, ../sass/JAMP_App/components/_topbar.scss */
+    .topbar-market ul {
+        display: inline;
+        line-height: 3.125em;
+    }
+        /* line 54, ../sass/JAMP_App/components/_topbar.scss */
+        .topbar-market ul li {
+            display: inline;
+            float: left;
+        }
+            /* line 57, ../sass/JAMP_App/components/_topbar.scss */
+            .topbar-market ul li a {
+                display: block;
+                width: 100%;
+                color: lightgrey;
+                padding: 0 0.9375em;
+                font-weight: bold;
+                height: 2.8125em;
+            }
+                /* line 64, ../sass/JAMP_App/components/_topbar.scss */
+                .topbar-market ul li a:hover {
+                    color: #01a7e2;
+                }
+                /* line 67, ../sass/JAMP_App/components/_topbar.scss */
+                .topbar-market ul li a i {
+                    font-size: 1.5em;
+                }
+        /* line 72, ../sass/JAMP_App/components/_topbar.scss */
+        .topbar-market ul .divider {
+            border-left: solid 1px lightgrey;
+            clear: none;
+            height: 1.5625em;
+            margin-top: 0.625em;
+            width: 0;
+        }
+
+/* 
+Left side Logo & toogle menu
+------------------------------------------------------- */
+/* line 86, ../sass/JAMP_App/components/_topbar.scss */
+.topbar-market-logo {
+    line-height: 3.125em;
+    width: auto;
+    left: 0;
+    float: left;
+}
+    /* line 91, ../sass/JAMP_App/components/_topbar.scss */
+    .topbar-market-logo img {
+        display: none !important;
+    }
+
+/* line 96, ../sass/JAMP_App/components/_topbar.scss */
+#topbar-market-left {
+    float: left;
+}
+
+.topbar-logos {
+    line-height: 3.125em;
+    /*width: auto;*/
+    left: 0;
+    float: left;
+    width: 11.875em;
+    line-height: inherit;
+}
+    /* line 91, ../sass/JAMP_App/components/_topbar.scss */
+    .topbar-logos img {
+        display: none !important;
+        display: inherit !important;
+        height: 2.5em;
+        width: 7em;
+        margin: 0.125em 1.875em;
+    }
+
+/* line 157, ../sass/foundation/components/_type.scss */
+
+#profileDetailsList 
+    {
+        
+        
+    }
+   
+
+@media screen and (min-width: 764px) {
+    #profile-toggle {
+        display: none;
+    }
+
+    .widthFormatter {
+        width: 96%;
+        margin: 0px 20px;
+    } 
+    #profileDetailsList li
+    {
+        display:inline-block
+    }
+}
+
+@media screen and (max-width: 764px) {
+    #topbar-profile {
+        display: none;
+    }
+
+    .mobileFormat {
+        margin-top: 20px;
+    }
+
+    .pageBodyHeight {
+        height: 300vh;
+    }
+
+    .topbar-logos img {
+        margin: 0.125em -0.875em;
+    }
+
+    .sectionButton 
+    {
+        display: none;
+    }
+    .mainPanel 
+    {
+        height:280px;
+    }
+    .mainPanelProfilePage 
+    {
+        height:280px;
+    }
+    .encloser
+    {
+       height: 55%;
+    }
+    #mainPanelFooterList li 
+    {
+        display:list-item;
+        list-style:none
+    }
+    .ellipse 
+    {
+        width: 250px;
+    }
+    #profileDetailsList li
+    {
+        display:list-item;
+        list-style:none;
+    }
+    .noMobile
+    {
+        visibility:hidden;
+        display:none;
+    }
+}
+

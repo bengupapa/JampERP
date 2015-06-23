@@ -1,0 +1,85 @@
+﻿@model JAMP.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<style>
+
+</style>
+
+<div class="mp-body pageBodyHeight ">
+    <div class="row ">
+        <div id="aboutSection" class="sectionHeight">
+            <div class="row">
+                <div class="widthFormatter sectionBanner overflowed bg-textured" >
+                    <div class="inBoxText centered inBoxMarging" >
+                         <h2 class="subheader sectionCaption">About us</h2>
+                    </div> 
+                    <div  class="sectionButton">
+                        <a class="icon-home sectionCaption" href="@Url.Action("Index","Home")">&nbsp HOME</a>
+                    </div>        
+                </div>
+            </div>
+            
+            <div class="row ">
+                <div class="">      
+                    <div class="panelContainer">
+                        <div class="large-8 small-11  block columns aboutPanel bg-textured">
+                            <div class="inBoxMarging" style="margin-top:20px">
+                                <img src="/Images/Jamp_logo_inline.png" style="height:70px; width:160px;margin-top:-10px"/>
+                                
+                                <p class="inBoxText">
+                                    <br />
+                                     Jamp is a mobile Enterprise Resource Planning (ERP) system with a focus on small and medium retailers (SMEs) in South Africa. The idea was developed by software development company <a href="http://www.openboxsoftware.com/">Open Box Software</a> as
+                                    a way to provide helpful retail management technology to SME's. The idea came about after recognising that a majority of small South African retailers currently use manual means of managing their stock, their sales and keeping
+                                    track of income and expenses; along with this recognition, it was realised that internet capable smart-phones usage is on the rise and that this presents new opportunities for innovation. 
+                                    <br/>
+                                    <br/>
+                                    Jamp is a step towards business management innovation through offering comprehensive management tools online for small business's who would otherwise not be able to afford them. The vision for Jamp is not only to create benefits for the individual user
+                                    , but to contribute to the economic growth of a country through supporting its SME's and helping them enhance performance. Jamp hopes to inspire more entrepreneurship by making business management enjoyable and easy for the user. The service's are free for the 
+                                    first three months, and a low monthly subscription will then be paid.
+                                </p>
+                            </div>
+                        </div>  
+                    </div> 
+                    <div class="large-4 columns mobileFormat">
+                        <div class="large-4 marginControl block widthDefined bg-textured">
+
+                            <div class="aboutCircle">
+
+                                <div class="uct_techInsights_Img ">
+                                  <a href="#"> <img src="/Images/techInsights.jpg" /></a>
+                                </div>
+                                    
+                            </div>
+                                                            
+                        </div>                       
+                        <br />
+                        <div class="large-4 marginControl block widthDefined bg-textured">
+
+                            
+                            <div class="aboutCircle" >
+                                <div class="uct_techInsights_Img ">
+                                    <a href="http://www.commerce.uct.ac.za/InformationSystems/"><img src="/Images/uct.jpg" /></a>
+                                </div>           
+                            </div>                               
+                        </div>
+                        <br />
+                        <div class="large-4 marginControl block widthDefined bg-textured">
+                            <div class="">
+
+                                <div id="openBoxImg">
+                                  <a href="http://www.openboxsoftware.com/"><img src="/Images/openbox.jpg" /></a>
+                                </div>
+                                    
+                            </div>
+                            
+                        </div>
+                    </div> 
+                </div> 
+             </div>
+            <br />   
+        </div>  
+    </div>
+</div>

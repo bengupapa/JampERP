@@ -1,0 +1,49 @@
+﻿<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title + ': ' + lowproducts().length"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Product List: Reorder</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Product list -->
+<div class="row">
+
+    <!-- ko foreach: lowproducts -->
+    <div class="large-4 columns" data-bind=" visible: $parent.lowproducts">
+        <div class="large-12 columns con item-con">
+            <div class="item-info-con">
+                 <h4 class="subheader animated" data-bind="text: fullName"></h4>
+                <hr class="divider-small-centred" />
+
+                <div class="row">
+                    <div class="small-4 column dP">Brand:</div>
+                    <div class="small-8 column dP2" data-bind="text: brandName"></div>
+                </div>
+                <div class="row">
+                    <div class="small-6 column dP">Quantity:</div>
+                    <div class="small-6 column dP2" data-bind="text: quantity"></div>
+                </div>
+                <div class="row">
+                    <div class="small-6 column dP">Price:</div>
+                    <div class="small-6 column dP2"><span>R</span><span data-bind="text: sellingPrice"></span></div>
+                </div>
+                <div class="row">
+                    <div class="small-6 column dP">Cost: </div>
+                    <div class="small-6 column dP2"><span>R</span><span data-bind="text: costPrice"></span></div>
+                </div>
+
+            </div>
+            <div class="item-edit">
+                <button class="signle-button" data-bind="click: $parent.goToOrder">Order</button>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+
+<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: !lowproducts">Loading ... </h5>
+</div>

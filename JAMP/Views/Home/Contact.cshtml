@@ -1,0 +1,130 @@
+﻿@model JAMP.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "Modules";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<div class="mp-body pageBodyHeight">
+    <div class="row ">
+
+        <!--HEADER-->
+        <div id="modulesSection" class="sectionHeight">
+            
+            <!--SECTION PANEL-->
+            <div class="row">
+                <div class="widthFormatter sectionBanner overflowed bg-textured">
+                    <div class="inBoxText centered inBoxMarging" >
+                         <h2 class="subheader sectionCaption">Contacts</h2>
+                    </div> 
+                     <div  class="sectionButton">
+                        <a class="icon-home sectionCaption" href="@Url.Action("Index","Home")">&nbsp HOME</a>
+                    </div> 
+                </div>
+            </div>
+
+            <!--BODY-->
+            <div class="row">  
+
+                <!--FACEBOOK COMMENTS SECTION TILE-->   
+                <div class="large-4 columns small-12 marginControl2 ">
+                     <div class=" block2 widthDefined bg-textured">
+                        <div class="inBoxMarging">
+                           <i class="icon-facebook-sign icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Facebook</a></h4>
+                            <h6>Leave us a comment</h6>
+                            <div class="inBoxText" style="margin-top:3px">
+
+                                <div class="fb-like" data-href="https://www.facebook.com/pages/TechInsights-Mathprosoft-ISG/371146939610520?ref=hl" data-width="20" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="large-8 columns small-12">
+
+                    <div class="row">
+                        <div class="large-6 columns small-12 mobileFormat">
+                            <div class="marginControl block widthDefined bg-textured ">
+                                <div class="inBoxMarging">
+                                    <i class="icon-phone icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Call us</a></h4>
+                                    <h6>Customer service</h6>
+                                    <p class="inBoxText">
+                                         Tel. 021 937 8823
+                                    </p>
+                                    <p class="inBoxText">
+                                         Fax. 021 937 8825
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="large-6 columns small-12">
+                         
+                            <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                                <div class="inBoxMarging">
+                                    <i class="icon-envelope icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp E-mail us</a></h4>
+                                    <h6>Customer enquiries</h6>
+                                    <p class="inBoxText">
+                                         jampsupport@techinsights.com
+                                    </p>
+                                    <p class="inBoxText">
+                                         services@techinsights.com
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                         <div class="large-6 columns small-12">
+                            <div class="marginControl block widthDefined mobileFormat bg-textured" onclick="location.href='https://www.twitter.com/TecInsights'" >
+                                <div class="inBoxMarging">
+                                    <i class="icon-twitter icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Twitter</a></h4>
+                                    <h6>Post a tweet</h6>
+                                    <p class="inBoxText">
+                                         Follow us on twitter, and drop us a tweet, We will contact you back as soon as possible.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="large-6 columns small-12">
+
+                            <div class="marginControl block widthDefined mobileFormat bg-textured" >
+                                <div class="inBoxMarging">
+                                    <i class="icon-map-marker icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Street Address</a></h4>
+                                    <h6>Visit us</h6>
+                                    <p class="inBoxText">
+                                         TechInsights 01 <br />
+                                         University of Cape Town <br />
+                                         Rondebosch,
+                                         7701
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <br />
+
+
+            <!--MAP SECTION-->
+            <div class="row">                        
+                <div class=" block mobileFormat bg-textured small-10 small-centered large-12 large-centered widthFormatter" style="height:500px">
+                        <div class="large-12 columns" style="text-align:center">
+                            <h4 class="subheader">&nbsp Directions</h4>
+                        </div>
+                        
+                        <div class="large-12 columns marginControl">
+                          <div id="map_canvas"></div>
+                        </div>
+                </div>          
+             </div>
+        </div>
+    </div>
+    <div style="height:100px">
+
+    </div>
+</div>

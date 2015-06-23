@@ -1,0 +1,209 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Summary</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Button navigation options-->
+<div class="row option-btn">
+    <div class="large-3 small-6 columns">
+        <a href="#/Inventory_Add_Product">
+            <p>Add Product</p>
+        </a>
+    </div>
+    <div class="large-3 small-6 columns">
+        <a href="#/Inventory_Report_Incident">
+            <p>Report Incident</p>
+        </a>
+    </div>
+    <div class="large-3 small-6 columns">
+        <a href="#/Inventory_Delivery">
+            <p>Delivery</p>
+        </a>
+    </div>
+    <div class="large-3 small-6 columns">
+        <a href="#/Inventory_Stock_Take">
+            <p>Stock Take</p>
+        </a>
+    </div>
+</div>
+
+<!-- Content Area first row-->
+<div class="row">
+
+    <!-- Dashboard list stats-->
+    <div class="large-5 push-7 columns dash-list">
+        <div class="large-12 columns">
+            <a href="#/Inventory_Categories">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon" data-bind="text: productlist"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">All Products</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="large-12 columns">
+            <a href="#/Inventory_Out_of_Stock">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon" data-bind="text: outproducts"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Out of Stock</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="large-12 columns">
+            <a href="#/Inventory_Reorder_List">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon" data-bind="text: lowproducts"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Reorder</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="large-12 columns">
+            <a href="#/Inventory_Incident_List">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon" data-bind="text: incidents"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Incidents</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Info panel: stock turnover rate-->
+    <div class="large-7 pull-5 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tags"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Turnover Rate</h4>
+                </div>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+                <div class="con-icon-close infoTurnover"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Product Name</th>
+                        <th class="tb30">Turnover Rate</th>
+                        <th class="tb30">Quantity</th>
+                    </tr>
+                </thead>
+            </table>
+            <h5 class="subheader">High Turnover </h5>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: highTurnOver">
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb30" data-bind="text: turnOverRate"></td>
+                        <td class="tb30" data-bind="text: quantity"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5 class="subheader">Low Turnover</h5>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: lowTurnOver">
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb30" data-bind="text: turnOverRate"></td>
+                        <td class="tb30" data-bind="text: quantity"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Content Area second row-->
+<div class="row">
+
+    <!-- Info panel: stock near reorder level-->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tags"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Near reorder</h4>
+                </div>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+                <div class="con-icon-close infoNearReorder"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Product Name</th>
+                        <th class="tb30">Days</th>
+                        <th class="tb30">Spare (Units)</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: nearReorder">
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb30" data-bind="text: closeReorder"></td>
+                        <td class="tb30" data-bind="text: spareStock"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+    <!-- Info panel: stock general information-->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tags"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Slow Moving</h4>
+                </div>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+                <div class="con-icon-close infoSlowMoving"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Product Name</th>
+                        <th class="tb30">Last Sale</th>
+                        <th class="tb30">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: slowMovingHiQuantity">
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb30" data-bind="text: salesItems().length == 0 ? 'Never' : salesItems()[0].sale().createdDate()"></td>
+                        <td class="tb30" data-bind="text: quantity"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

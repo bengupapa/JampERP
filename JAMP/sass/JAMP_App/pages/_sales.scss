@@ -1,0 +1,41 @@
+/* 
+==========================================================
+					  Sales Pages
+==========================================================
+*/
+/* 
+Variables
+------------------------------------------------------- */
+$warning-notice-bg-colour:		$colour-orange-notify;
+$warning-notice-colour:			white;
+
+.warning-notice h5{
+	background-color: $warning-notice-bg-colour;
+	color: $warning-notice-colour;
+	text-align: center;
+	padding: 5px 0;
+}
+.sale-increase-decrease{
+	float: left;
+	width:30px;
+	height: 75px;
+	position: relative;
+	border-right: 1px solid $colour-grey;
+	margin-right:3px;
+}
+.sale-details{
+	float:right;
+	width:calc(100% - 33px);
+}
+.no-leftmargin{
+	padding-left:0;
+}
+.increse-sale, .decrease-sale {
+	height: 50%;
+	i{
+		margin-left:5px;
+	}
+}
+.increse-sale{
+	border-bottom: 1px solid $colour-grey;
+}

@@ -1,0 +1,19 @@
+/* 
+==========================================================
+	               Breadcrumbs
+========================================================== 
+*/
+
+.breadcrumbs {
+    @include crumb-container;
+    &>* {
+      @include crumbs;
+    }
+	&> *.previous{
+		color: $colour-dark-blue;
+		&:hover{
+			color: $colour-light-blue;
+		}
+	}
+	margin-bottom: emCalc(15px);
+  } 

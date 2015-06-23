@@ -1,0 +1,112 @@
+﻿<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Customer Activities</a>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+
+    <!-- Customer Additions -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Customer Additions</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Date Added</th>
+                        <th class="tb40">Customer Name</th>
+                        <th class="tb30">Added By</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: customerList">
+                   
+                    <tr>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb30" data-bind="text: employee().fullName "></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Customer Payments -->
+     <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Customer Payments</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Date Recorded</th>
+                        <th class="tb40">Account Number</th>
+                        <th class="tb40">Recorded By</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: paymentsList">
+                   
+                    <tr>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb40" data-bind="text: customerAccount().accountName"></td>
+                        <td class="tb40" data-bind="text: employee().fullName "></td>                      
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Archieved Customers -->
+         <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Archived Customers</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Customer Name</th>
+                        <th class="tb40">Amount Owed</th>
+                        <th class="tb40">Date Archived</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: achievedlist">
+                   
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb40" data-bind="text: customerAccount().amountOwed"></td>
+                        <td class="tb40" data-bind="text: archivedDate "></td>                      
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

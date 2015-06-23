@@ -1,0 +1,109 @@
+﻿<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Order Activities</a>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <!-- Orders -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Latest Orders</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Date Made</th>
+                        <th class="tb40">To Supplier</th>
+                        <th class="tb30">Made By</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: orderList">
+
+                    <tr>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb40" data-bind="text: supplier().supplierName"></td>
+                        <td class="tb30" data-bind="text: employee().fullName "></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Deliveries -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Latest Deliveries</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Date Made</th>
+                        <th class="tb40">To Supplier</th>
+                        <th class="tb30">Made By</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: deliveryList">
+
+                    <tr>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb40" data-bind="text: order().supplier().supplierName"></td>
+                        <td class="tb30" data-bind="text: employee().fullName "></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+            <!-- Archived Orders -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Archived Orders</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Supplier Name</th>
+                        <th class="tb40">Cost</th>
+                        <th class="tb40">Archived Date</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: archivedSupplier">
+
+                    <tr>
+                        <td class="tb40" data-bind="text: supplier().supplierName"></td>
+                        <td class="tb40" data-bind="text: totalCost"></td>
+                        <td class="tb40" data-bind="text: archivedDate"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

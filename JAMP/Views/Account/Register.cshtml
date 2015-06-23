@@ -1,0 +1,82 @@
+﻿@model JAMP.ViewModels.EmployeeRegistrationViewModel
+@{
+    ViewBag.Title = "Employee Register";
+}
+
+<div class="mp-body bg-textured">
+    <div class="row small-6">
+        <h3 class="subheader">@ViewBag.Title</h3>
+    </div>
+
+    <div class="row small-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row whiteColor">
+                <div style="margin-top: 12px">
+                    @foreach (var role in Model.roles)
+                    {
+                               <div class="large-6 columns small-6">
+                                    @Html.RadioButtonFor(m => m.EmpRegister.SelectedRole, role.RoleName) <i>&nbsp</i> @role.RoleName
+                               </div>
+                    }
+                    @if (TempData["notice"] != null)
+                    {<p>@TempData["notice"]</p>}
+                </div>
+            </div>
+        
+            <br />
+        
+            <div class="row whiteColor">
+                <div class="whiteColor">
+                    <div class="required-feild">
+                        @Html.LabelFor(m => m.EmpRegister.UserName)
+                        @Html.TextBoxFor(m => m.EmpRegister.UserName)
+                        @Html.ValidationMessageFor(m => m.EmpRegister.UserName)
+                    </div>
+                    <div class="required-feild">
+                        @Html.LabelFor(m => m.EmpRegister.LastName)
+                        @Html.TextBoxFor(m => m.EmpRegister.LastName)
+                        @Html.ValidationMessageFor(m => m.EmpRegister.LastName)
+                    </div>
+
+                    <div class="required-feild">
+                        @Html.LabelFor(m => m.EmpRegister.Contacts)
+                        @Html.TextBoxFor(m => m.EmpRegister.Contacts)
+                        @Html.ValidationMessageFor(m => m.EmpRegister.Contacts)
+                    </div>
+                    <div class="required-feild">
+                        @Html.LabelFor(m => m.EmpRegister.EmployeeEmail)
+                        @Html.TextBoxFor(m => m.EmpRegister.EmployeeEmail)
+                        @Html.ValidationMessageFor(m => m.EmpRegister.EmployeeEmail)
+                    </div>
+                    <div class="required-feild">
+                        @Html.LabelFor(m => m.EmpRegister.Password)
+                        @Html.PasswordFor(m => m.EmpRegister.Password)
+                        @Html.ValidationMessageFor(m => m.EmpRegister.Password)
+                    </div>
+                    <div class="required-feild">
+                        @Html.LabelFor(m => m.EmpRegister.ConfirmPassword)
+                        @Html.PasswordFor(m => m.EmpRegister.ConfirmPassword)
+                        @Html.ValidationMessageFor(m => m.EmpRegister.ConfirmPassword)
+                    </div>
+
+                        <div class="left">
+                               <input class="button small" type="submit" value="Register" />
+                        </div>
+
+                        <div class="right">
+
+                            <a class="button small" href="/App/jamp#/">Cancel</a>
+                        </div>
+                </div>
+            </div>
+            
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

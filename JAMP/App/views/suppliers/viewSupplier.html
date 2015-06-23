@@ -1,0 +1,89 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="previous" data-bind="click: goBack">Supplier List</a>
+            <a class="current" href="#">Supplier Form</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Supplier details form-->
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border" data-bind="with: supplier">
+            <span class="changed-state-tag left" data-bind="visible: $parent.hasChanges">Changed</span>
+
+            <!-- Supplier form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-strikethrough"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">
+                        <span data-bind="text: supplierName"></span></h4>
+                </div>
+            </div>
+
+            <!-- Supplier form inputs-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Name</label>
+                    <input type="text" data-bind="value: supplierName, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Address</label>
+                    <input type="text" data-bind="value: supplierAddress, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>City</label>
+                    <input type="text" data-bind="value: supplierCity, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable">
+                </div>
+                <div class="large-6 columns">
+                    <label>Postal Code</label>
+                    <input type="text" data-bind="value: supplierPostCode, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Contact Number</label>
+                    <input type="text" data-bind="value: supplierContact, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Email</label>
+                    <input type="text" data-bind="value: supplierEmail, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Description</label>
+                    <textarea data-bind="value: description, valueUpdate: 'afterkeydown', enable: $parent.supplierEditable"></textarea>
+                </div>
+            </div>
+
+            <!-- Button options-->
+            <button data-bind="click: $parent.cancel, enable: $parent.canSave">
+                <i class="icon-undo"></i>Cancel</button>
+            <button data-bind="click: $parent.save, enable: $parent.canSave">
+                <i class="icon-save"></i>Save</button>
+            <button data-bind="click: $parent.editSupplier">
+                <i class="icon-pencil"></i>Edit</button>
+            <button data-bind="click: $parent.deleteSupplier, disable: $parent.hasChanges">
+                <i class="icon-trash"></i>Delete</button>
+        </div>
+    </div>
+</div>
+
+

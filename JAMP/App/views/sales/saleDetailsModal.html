@@ -1,0 +1,85 @@
+﻿<div class="messageBox autoclose" style="max-width: 320px">
+    <div class="modal-header">
+        <h3>Sale Details</h3>
+    </div>
+    <div class="modal-body">
+        <!-- ko with: sale -->
+           <div class="row">
+            <div class="large-12 columns">
+                    <label>Employee</label>
+                <input type="text" data-bind="value: employee().fullName(), enable: false" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns" data-bind="if: customer() != null">
+                <div class="large-6 columns">
+                    <label>Customer</label>
+                </div>
+                <div class="large-6 columns">
+                    <span class="right" data-bind="text: credit() ? 'Credit' : 'Cash'"></span>
+                </div>
+                <input type="text" data-bind="value: customer().fullName(), enable: false" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Amount Charged: </label>
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <span class="prefix">R</span>
+                    </div>
+                    <div class="small-10 columns">
+                        <input type="text" data-bind="value: amountCharged, enable: false" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Amount Received: </label>
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <span class="prefix">R</span>
+                    </div>
+                    <div class="small-10 columns">
+                        <input type="text" data-bind="value: amountReceived, enable: false" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Change: </label>
+                <div class="row collapse">
+                    <div class="small-2 columns">
+                        <span class="prefix">R</span>
+                    </div>
+                    <div class="small-10 columns">
+                        <input type="text" data-bind="value: change, enable: false" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+              <div class="large-12 columns">
+                  <label>Products:</label>
+                  <div data-bind="foreach : salesItems">
+                      <!-- ko with: product  -->
+                      <p data-bind="text: fullName">
+                      </p>
+                      <!-- /ko -->
+                  </div>
+              </div>
+        </div>
+
+        <!-- /ko -->
+        <div class="modal-footer">
+            <button data-bind="click: cancel">Close</button>
+        </div>
+    </div>
+</div>

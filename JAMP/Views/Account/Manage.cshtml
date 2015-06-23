@@ -1,0 +1,45 @@
+﻿@model JAMP.Models.AccountModels.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<div class="mp-body bg-textured">
+    <!--Login contrainer-->
+    <div class="row container">
+
+        <!-- logo container -->
+        <div class="logo-container">
+            <a href="#" class="logo"></a>
+        </div>
+
+        <!-- login form details -->
+        @using (Html.BeginForm("Manage", "Account"))
+        {
+            @Html.AntiForgeryToken()
+            
+                <div class="login_form">
+                  <div class="" style="margin: 20px; margin-top: 110px">
+                    @Html.LabelFor(m => m.OldPassword)
+                    @Html.PasswordFor(m => m.OldPassword)
+
+                    @Html.LabelFor(m => m.NewPassword)
+                    @Html.PasswordFor(m => m.NewPassword)
+
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    
+                        <div class="left">
+                            <input class="button small" type="submit" id="submit" value="Submit" />
+                        </div>
+                        <div class="right">
+                            <a class="button small" href='/App/Jamp#/Profile'>Cancel</a>
+                        </div>
+                </div>
+            </div>        
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

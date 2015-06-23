@@ -1,0 +1,310 @@
+﻿@model JAMP.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<style>
+
+</style>
+
+<div class="mp-body pageBodyHeight ">
+    <div class="row ">
+        <div id="aboutSection" class="sectionHeight">
+            <div class="row">
+                <div class="widthFormatter sectionBanner overflowed bg-textured" >
+                    <div class="inBoxText centered inBoxMarging" >
+                         <h2 class="subheader sectionCaption">Support</h2>
+                    </div> 
+                    <div  class="sectionButton">
+                        <a class="icon-home sectionCaption" href="@Url.Action("Index","Home")">&nbsp HOME</a>
+                    </div>        
+                </div>
+            </div>
+            
+            <div class="row ">
+                <div class="">      
+                    <div class="panelContainer mobileFormat">
+                        <div class="large-8 small-11  block columns  bg-textured">
+                              <div>
+                                 <i class="icon-info-sign icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp System help</a></h4>
+                              </div>
+                              <div>
+                                  <div class="section-container accordion" data-section="accordion">
+
+                                        <!--SALES SECTIONS-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-shopping-cart subheader"></i>&nbsp Point of sale</a></h6>
+                                          <div class="content" data-section-content>
+                                              <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                    <li><b>Making a Sale on Jamp is easy and convenient.<br />The following steps provide guidance in making a sale:<hr /></b>
+                                                      <ul>
+                                                          <li>Click the "Make Sale" button</li>
+                                                          <li>Search the product by entering the brand name first (corresponding products from database will automatically appear)</li>
+                                                          <li>Select the desired product by clicking the "Add" button (The product will be added to the "Sale Details" list)</li>
+                                                          <li>Select Cash or Credit sale (If Credit sale, you need to click "Customer" button and search customer)</li>
+                                                          <li>If Cash sale, a modal will appear, allowing you to enter the amount received</li>
+                                                          <li>Finally a modal summarising the sale amounts will appear; click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                        <!--INVENTORY SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-tags subheader"></i>&nbsp Inventory</a></h6>
+                                          <div class="content" data-section-content>
+                                              <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>The Inventory functionalities in Jamp are very comprehensive. The primary functionalities are creating a product, reporting and incident, recording deliveries & taking stock.<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>Creating a product is as follows:</b>
+                                                      <ul>
+                                                          <li>Click "Add Product"</li>
+                                                          <li>If there are no product categories, you will be prompted to create a category</li>
+                                                          <li>If categories exist you will be redirected to the product page</li>
+                                                          <li>Enter the product details</li>
+                                                          <li>Reorder level is the quantity level at which you wish to reorder the product</li>
+                                                          <li>Click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                     <li></li>
+                                                     <li><b>Creating a category is as follows:</b>
+                                                      <ul>
+                                                          <li>Click "All Products"</li>
+                                                          <li>Click the plus sign</li>
+                                                          <li>Enter category details</li>
+                                                          <li>Click Save</li>
+                                                      </ul>
+                                                    </li>
+                                                     <li></li>
+                                                     <li><b>Recording an incident is as follows:</b>
+                                                      <ul>
+                                                            <li>Click "Report Incident"</li>
+                                                            <li>Select incident type</li>
+                                                            <li>Click "Add Product" and search the product related to the incident</li>
+                                                            <li>Provide notes</li>
+                                                            <li>Click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                     <li></li>
+                                                     <li><b>Taking stock is as follows:</b>
+                                                         <ul>
+                                                             <li>Click "Stock Take"</li>
+                                                             <li>Select category</li>
+                                                             <li>Enter the quantity counted next to the product</li>
+                                                             <li>Click "Check"</li>
+                                                         </ul>
+                                                     </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                      <!--SUPPLIERS SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-strikethrough subheader"></i>&nbsp Suppliers</a></h6>
+                                          <div class="content" data-section-content>
+                                           <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>The Supplier section is all about recording information related to your stock suppliers<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>Creating a supplier is as follows:</b>
+                                                      <ul>
+                                                          <li>Click "Add Supplier"</li>
+                                                          <li>Enter supplier details</li>
+                                                          <li>Click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                     <li></li>
+                                                     <li><b>Creating a order is as follows:</b>
+                                                      <ul>
+                                                          <li>Click "Create Order"</li>
+                                                          <li>Enter order details</li>
+                                                          <li>Click "Add Product"</li>
+                                                          <li>Search and select Products</li>
+                                                          <li>Specify quantity</li>
+                                                          <li>Click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                        <!--CUSTOMERS SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-male subheader"></i><i class="icon-female subheader"></i>&nbsp Customers</a></h6>
+                                          <div class="content" data-section-content>
+                                            <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>Customer management in Jamp includes creating a customer and recording payments for amounts owed<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>Creating a customer is as follows:</b>
+                                                      <ul>
+                                                          <li>Click "Add Customer"</li>
+                                                          <li>Enter Customer details</li>
+                                                          <li>Click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                     <li></li>
+                                                     <li><b>Recording a payment is as follows:</b>
+                                                      <ul>
+                                                          <li>View the customer's account</li>
+                                                          <li>Click "Transactions"</li>
+                                                          <li>Enter payment details</li>
+                                                          <li>Click "Save"</li>
+                                                      </ul>
+                                                    </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                        <!--EMPLOYEES SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-group subheader"></i>&nbsp Employees</a></h6>
+                                          <div class="content" data-section-content>
+                                            <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>Jamp allows for smooth and convenient employee management which includes creating, promoting/demoting and dismissing employees<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>Functions are as follows:</b> 
+                                                      <ul>
+                                                          <li>To create an employee click "Add Employee", enter the relevant details and click "Register"</li>
+                                                          <li>To promote/demote and employee select the relevant employee and select the relevant role in the dropdown list</li>
+                                                          <li>To dismiss an employee select the relevant employee and click "Dismiss"</li>
+                                                      </ul>
+                                                    </li>
+                          
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                        <!--REPORTS SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-bar-chart subheader"></i>&nbsp Reports</a></h6>
+                                          <div class="content" data-section-content>
+                                            <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>Jamp provides the user with easy to read reports about vital business information. Viewing reports is a simple click away<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>The followin reports are available</b> <!--DELETE ALL THE SUBTITLE LINES IF YOU DON'T HAVE SUBTITLES, AND POPULATE THE FIRST LIST ONLY-->
+                                                      <ul>
+                                                          <li>Profit Margin Report</li>
+                                                          <li>Sales Margin</li>
+                                                          <li>Average Sales</li>
+                                                          <li>Cash vs Credit Sales</li>
+                                                          <li>Supplier Margin</li>
+                                                          <li>Supplier Orders</li>
+                                                          <li>And many more...</li>
+                                                      </ul>
+                                                    </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                        <!--USER SETTINGS SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-cogs subheader"></i>&nbsp User settings</a></h6>
+                                          <div class="content" data-section-content>
+                                            <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>Jamp allows the user to change settings according to his/her desire in an intuitive way<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>The following adjustments can be made on the setting page</b> <!--DELETE ALL THE SUBTITLE LINES IF YOU DON'T HAVE SUBTITLES, AND POPULATE THE FIRST LIST ONLY-->
+                                                      <ul>
+                                                          <li>Adjustments for automatic updates </li>
+                                                          <li>Getting fresh server side data</li>
+                                                          <li>Settings for help descriptions</li>
+                                                          <li>Disabling and enabling sales</li>
+                                                         
+                                                      </ul>
+                                                    </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+
+                                        <!--NOTIFICATIONS SECTION-->
+                                        <section>
+                                          <h6  class="title subheader" data-section-title><a href="#"><i class="icon-bell subheader"></i>&nbsp Notification</a></h6>
+                                          <div class="content" data-section-content>
+                                            <div style="margin-left:2%">
+                                                 <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>Notifications for order arrivals are provided<hr /></b></LI>
+                                                     <li></li>
+                                                     <li><b>To view notifications do the following:</b> <!--DELETE ALL THE SUBTITLE LINES IF YOU DON'T HAVE SUBTITLES, AND POPULATE THE FIRST LIST ONLY-->
+                                                      <ul>
+                                                          <li>Click the truck icon on the navbar when it is orange</li>
+                                                          <li>A list of all expected order arrivals for that day will appear</li>
+                                                          <li>Click on the order to view its details</li>
+                                                         
+                                                      </ul>
+                                                    </li>
+                                                 </ul>
+                                              </div>
+                                          </div>
+                                        </section>
+                                </div>
+                              </div>
+                            <div style="height:20px">
+
+                            </div>
+                       
+                        </div>  
+                    </div> 
+                    <div class="large-4 columns mobileFormat">
+                        <div class="large-4 marginControl block widthDefined bg-textured">
+
+                            <div class="inBoxMarging">
+                            <i class="icon-gear icon-2x subheader"></i><i class="icon-gear icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp System requirements</a></h4>
+                            <div class="inBoxText">
+                                  <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>System Requierments are as follows:</b> <!--DELETE ALL THE SUBTITLE LINES IF YOU DON'T HAVE SUBTITLES, AND POPULATE THE FIRST LIST ONLY-->
+                                                      <ul>
+                                                          <li>HTML 5 capable browser</li>
+                                                          <li>CSS3 supporting browser</li>
+                                                          <li>Javascript supporting browser</li>
+                                                         <li>TCP/IP based network connection</li>
+                                                      </ul>
+                                        </li>
+                                 </ul>
+                            </div>
+                        </div>
+                                                            
+                        </div>                       
+                        <br />
+                        <div class="large-8 marginControl2 block widthDefined bg-textured">
+
+                            <div class="inBoxMarging">
+                                <i class="icon-comments-alt icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Recommendations</a></h4>
+                                <div class="inBoxText">
+                                      <ul class="inBoxText" style="list-style:none">
+                                                     <li><b>Recommendations are as follows:</b> <!--DELETE ALL THE SUBTITLE LINES IF YOU DON'T HAVE SUBTITLES, AND POPULATE THE FIRST LIST ONLY-->
+                                                      <ul>
+                                                          <li>Use desktop browsers IE 9+, Firefox, Chrome, Safari</li>
+                                                          <li>Use mobile device with minimum screen width of 320 pixels</li>
+                                                          <li>Ensure that you have stable internet connectivity</li>
+                                                         <li>Enabel cache storage on browser</li>
+                                                          <li>Enable javascript on browser</li>
+                                                      </ul>
+                                        </li>
+                                 </ul>
+                                </div>
+                            </div>                               
+                        
+                            
+                        </div>
+                    </div> 
+                </div> 
+             </div>
+            <br />   
+        </div>  
+    </div>
+</div>

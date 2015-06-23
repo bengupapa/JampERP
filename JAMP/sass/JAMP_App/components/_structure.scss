@@ -1,0 +1,157 @@
+/* 
+==========================================================
+	               JAMP Site structure
+==========================================================
+*/
+
+/* 
+Structure Variables
+------------------------------------------------------- */
+//Background
+$content-area-bg:		$textured-bg;
+
+//Back button
+$back-btn-colour:				$colour-drak-grey;
+$back-btn-colour-hover:			white;
+$back-btn-colour-bg:			rgba(255,255,255,0.4);
+$back-btn-colour-bg-hover:		$colour-light-blue;
+$back-btn-size:					emCalc(48px);
+$back-btn-size-mobile:			emCalc(42px);
+
+//Wait load
+$wait-load-bg:					$transparent-bg-white;
+$wait-load-colour:				$colour-drak-grey;
+
+//Editing tags
+$editing-tag-colour:			white;
+$editing-tag-bg-colour:			$colour-light-blue;
+$editing-tag-bg-colour-orange:	$colour-orange-notify;
+$editing-tag-bg-colour-green:	$colour-green-notify;
+
+//Form structure
+$textarea-height:				emCalc(100px);
+
+$structure-break-point:			emCalc(767px);
+
+/* 
+Content Wrappers
+------------------------------------------------------- */
+#applicationHost{
+	position: relative;
+    overflow: hidden;
+    width: 100%;
+    height:100%;
+}
+
+#inner-wrap {
+    padding-top:45px;
+    position: relative;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height:100%;
+    z-index:0;
+}
+
+/* 
+Content Container Structure
+------------------------------------------------------- */
+.content-frame{
+    float:right;
+    padding-bottom:25px;
+    background-image:$content-area-bg;    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height:100%;
+    right:0;
+    overflow: hidden;
+}
+
+//Content box filling gap between topbar and syn-bar
+.content-box{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height:100%;
+    overflow: hidden;
+}
+
+//Scrollable area
+.content-scrollable{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+//Framing area of content
+.frame{
+    margin-top: 10px;
+}
+
+/* 
+Content Main Heading Structure
+------------------------------------------------------- */
+.content-name h3{
+    margin-bottom:0;
+}
+.back-btn{
+	color:$back-btn-colour; 
+	background-color:$back-btn-colour-bg;
+	font-size: $back-btn-size;
+	cursor:pointer;
+	&:hover{
+		background-color:$back-btn-colour-bg-hover;	
+		color:$back-btn-colour-hover;	
+	}
+	@media only screen and (max-width: $structure-break-point) {
+		font-size: $back-btn-size-mobile;
+	}
+}
+
+/* 
+Content Loading message
+------------------------------------------------------- */
+.wait-load{
+	text-align:center;
+	h5 {
+		background-color: $wait-load-bg;
+		width:120px;
+		padding:10px 0;
+		color: $wait-load-colour;
+		margin: 0 auto;
+	}
+}
+/* 
+Editing tags
+------------------------------------------------------- */
+.changed-state-tag, 
+.changed-state-tag-orange,
+.changed-state-tag-green{
+	color: $editing-tag-colour;
+	font-size: 15px;
+	padding: 2px 3px;
+	margin-top: -10px !important;
+	margin-left: -20px;
+}
+.changed-state-tag {
+	background-color: $editing-tag-bg-colour;
+}
+.changed-state-tag-orange{
+	background-color: $editing-tag-bg-colour-orange;
+}
+.changed-state-tag-green{
+	background-color: $editing-tag-bg-colour-green;
+}
+/* 
+Form structure
+------------------------------------------------------- */
+.textarea-height {
+	height: $textarea-height;
+}
+.no-bottom-margin {
+	margin-bottom:0;
+}
+
+

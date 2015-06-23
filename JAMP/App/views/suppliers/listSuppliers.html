@@ -1,0 +1,60 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Supplier List</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Search-->
+<div class="row">
+    <div class="small-10 large-centered  small-centered columns">
+        <div class="row collapse item-search">
+            <div class="small-10 columns">
+                <input type="text" data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Search for supplier">
+            </div>
+            <div class="small-2 columns">
+                <span class="postfix"><i class="icon-search"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Supplier list -->
+<div class="row">
+
+    <!-- ko foreach: filteredItems -->
+    <div class="large-4 columns" data-bind=" visible: $parent.filteredItems">
+        
+        <div class="large-12 columns con item-con">
+            <div class="supplierDetails">
+            <div class="item-info-con ">
+                <h4 class="subheader animated" data-bind="text: supplierName"></h4>
+                <p data-bind="text: supplierAddress"></p>
+                <p data-bind="text: supplierPostCode"></p>
+                <p data-bind="text: supplierContact"></p>
+            </div>
+                </div>
+            <div class="item-edit" data-bind="">
+                <button class="accountDetails">Account</button>
+                <button data-bind="click: $parent.makrORder">Make order</button>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <div class="large-4 columns"">
+        <a href="#/Supplier_Add_Supplier">
+            <p class="large-12 columns add-item-btn"><i class="icon-plus"></i></p>
+        </a>
+    </div>
+
+</div>
+
+<!--<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: !suppliers">Loading ... </h5>
+</div>-->
+

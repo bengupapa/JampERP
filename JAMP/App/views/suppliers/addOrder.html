@@ -1,0 +1,132 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Order Form</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Order create form-->
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border" data-bind="with: order">
+            <span class="changed-state-tag left" data-bind="visible: $parent.hasChanges">New Order</span>
+
+            <!-- Order form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-copy"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Order Details</h4>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="large-12 columns">
+                    <label>Supplier</label>
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: $parent.supplier() != null ? $parent.supplier().supplierName() : '', disable: true" placeholder="Select a supplier" />
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix" data-bind="click: $parent.addSupplier">Add</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="large-12 columns">
+                    <label>Due date </label>
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="datepicker: dateDue, datepickerOptions: { format: 'YYYY-MM-DD' }" placeholder="e.g. 2013-09-10">
+                        </div>
+                         <div class="small-2 columns">
+                            <span class="postfix calendar-icon-center"><i class="icon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Notes</label>
+                    <textarea placeholder="e.g. Product left on shelve which had expired" data-bind="value: notes"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="large-6 columns">
+                        <h3 class="subheader">Products</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" data-bind="visible: $parent.productOrderList().length > 0">
+                <div class="large-12 columns">
+                    <table class="table-full-width with-margin">
+                        <thead>
+                            <tr>
+                                <th class="tb40">Product Name</th>
+                                <th class="tb30">Quantity</th>
+                                <th class="tb30"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody data-bind="foreach: $parent.productOrderList">
+                            <tr>
+                                <!-- ko with: product -->
+                                <td class="tb40" data-bind="text: fullName"></td>
+                                <!-- /ko -->
+                                <td class="tb30">
+                                    <a class="amount-chevron" data-bind="click: $root.decreaseQuantity"><i class="icon-chevron-sign-down"></i></a>
+                                    <span class="amount-quantity" data-bind="text: quantityOrdered"></span>
+                                    <a class="amount-chevron" data-bind="click: $root.increaseQuantity"><i class="icon-chevron-sign-up"></i></a>
+                                </td>
+                                <td class="tb30">
+                                    <a class="add-remove-btn" data-bind=" click: $root.removeFromList">Remove</a></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Total Cost</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: $parent.orderTotalCost, enable: false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p data-bind="if: $parent.creditLimit()">You dont have enough credit with supplier</p>
+            <!-- Button options-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="large-4 columns">
+                        <button data-bind="click: $parent.addProduct">Add Product</button>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="right">
+                            <button data-bind="click: $parent.cancel">
+                                <i class="icon-undo"></i>Cancel</button>
+                            <button data-bind="click: $parent.save, enable: $parent.canSave">
+                                <i class="icon-save"></i>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="previous" data-bind="click: goBack">Summary</a>
+            <a class="current" href="#">Sales</a>
+        </nav>
+    </div>
+</div>
+
+
+
+<div class="row">
+        <div class="large-15 large-centered columns">
+
+
+        <div class="large-6 columns">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon"><i class="icon-paper-clip"></i></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Sales Margin</h4>
+                        </div>
+                        <!-- ko if: userSettings().descriptions() == 'On' -->
+                        <div class="con-icon-close infoSalesStats"><i class="icon-info-sign"></i></div>
+                        <!-- /ko -->
+                    </div>
+
+                    <div id="totalSales" ></div>
+            </div>
+        </div>
+
+  </div>
+
+        <div class="large-15 large-centered columns">
+
+
+        <div class="large-6 columns">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon"><i class="icon-paper-clip"></i></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Average Sales</h4>
+                        </div>
+                        <!-- ko if: userSettings().descriptions() == 'On' -->
+                        <div class="con-icon-close infoAverageSales"><i class="icon-info-sign"></i></div>
+                        <!-- /ko -->
+                    </div>
+                    <div id="AverageSales" ></div>
+            </div>
+        </div>
+
+  </div>
+    </div>
+
+
+<div class="row">
+        <div class="large-15 large-centered columns">
+
+
+        <div class="large-6 columns">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon"><i class="icon-paper-clip"></i></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Cash vs Credit</h4>
+                        </div>
+                        <!-- ko if: userSettings().descriptions() == 'On' -->
+                        <div class="con-icon-close infoCreditSales"><i class="icon-info-sign"></i></div>
+                        <!-- /ko -->
+                    </div>
+
+                    <div id="TotalsalesVScredit" ></div>
+            </div>
+        </div>
+
+  </div>
+    </div>

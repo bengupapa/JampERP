@@ -1,0 +1,15 @@
+﻿@*-----Loading page----- *@
+<div id="loader">
+    <div id="loader-info">
+        <div id="loader-logo"></div>
+        <div id="loader-spin">
+            <div id="loader-text">
+                <h3>Loading...</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var target = document.getElementById('loader-spin');
+    var spinner = new Spinner({ shadow: false, hwaccel: true }).spin(target);
+</script>

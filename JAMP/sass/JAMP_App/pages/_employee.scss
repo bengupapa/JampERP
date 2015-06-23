@@ -1,0 +1,24 @@
+/* 
+==========================================================
+					  Employee Pages
+==========================================================
+*/
+/* 
+Variables
+------------------------------------------------------- */
+//Last seen status
+$last-seen-colour-online:						$colour-green-notify;
+$last-seen-colour-offline:						$colour-red-notify;
+
+/* 
+Last seen status
+------------------------------------------------------- */
+.last-seen-online,.last-seen-offline{
+	font-weight:bold;
+}
+.last-seen-online{
+	color: $last-seen-colour-online !important;
+}
+.last-seen-offline{
+	color: $last-seen-colour-offline !important;
+}

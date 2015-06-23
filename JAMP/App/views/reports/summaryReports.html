@@ -1,0 +1,156 @@
+﻿<!-- Page header with breadcrumb navigation-->
+
+
+
+<!-- Page header with breadcrumb navigation-->
+<div class="row full-width">
+    <div class="large-12 columns content-name">
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Reports</a>
+        </nav>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <!-- Dashboard list stats-->
+    <div class="large-5 push-7 columns dash-list">
+        <div class="large-12 columns">
+            <!--FIRST BAR-->
+            <div class="con">
+                 <!-- Product form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                <div class="con-divider"></div>
+                <a href=" #/Sales_report">
+                <div class="con-name">
+                    <h4 class="subheader">Sales</h4>
+                </div>
+                    </a>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+              <div class="con-icon-close infoSales"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+            </div>
+        </div>
+
+        
+        <div class="large-12 columns">   
+            <!--2 BAR-->
+            <div class="con">
+               <!-- Product form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-strikethrough"></i></div>
+                <div class="con-divider"></div>
+                <a href=" #/Supplier_report">
+                <div class="con-name">
+                    <h4 class="subheader">Supplier</h4>
+                </div>
+                    </a>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+               <div class="con-icon-close infoSupplier"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+            </div>
+        </div>
+
+        
+        <div class="large-12 columns">
+            
+            <!--3 BAR-->
+            <div class="con">
+
+                <!-- Product form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tags"></i></div>
+                <div class="con-divider"></div>
+                <a href=" #/Inventory_report">
+                <div class="con-name">
+                    <h4 class="subheader">Inventory</h4>
+                </div>
+                </a>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+                <div class="con-icon-close infoInventory"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+                
+            </div>
+
+        </div>
+
+
+        <div class="large-12 columns">
+            
+            <!--3 BAR-->
+            <div class="con">
+            
+                <!-- Product form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-male"></i><i class="icon-female"></i></div>
+                <div class="con-divider"></div>
+                <a href=" #/Customer_report">
+                <div class="con-name">
+                    <h4 class="subheader">Customer</h4>
+                </div>
+                </a>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+                <div class="con-icon-close infoCustomers"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+                
+            </div>
+        </div>
+
+    </div>
+    
+
+    <!-- Info panel: stock turnover rate-->
+    <div class="large-7 pull-5 columns">
+        
+        <div class="con">
+           <div class="con-header">
+                        <div class="con-icon"><i class="icon-paper-clip"></i></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Profit Margin Stats</h4>
+                        </div>
+                        <!-- ko if: userSettings().descriptions() == 'On' -->
+                        <div class="con-icon-close infoProfitMargin"><i class="icon-info-sign"></i></div>
+                        <!-- /ko -->
+                    </div>
+                    <div id="totalSales" ></div>
+        </div>
+     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

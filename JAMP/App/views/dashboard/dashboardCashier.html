@@ -1,0 +1,99 @@
+﻿<!-- Page header-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <h3 class="subheader" data-bind="text: title"></h3>
+    </div>
+</div>
+
+<!-- Links-->
+<div class="row">
+    <div class="large-6 columns">
+        <div class="con">
+            <a href="#/Sales_Create">
+                <div class="con-header">
+                    <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                    <div class="con-divider"></div>
+                    <div class="con-name">
+                        <h4 class="subheader">Make Sale</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="large-6 columns">
+        <div class="con">
+            <a href="#/Inventory">
+                <div class="con-header">
+                    <div class="con-icon"><i class="icon-tags"></i></div>
+                    <div class="con-divider"></div>
+                    <div class="con-name">
+                        <h4 class="subheader">View Products</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="large-6 columns">
+        <div class="con">
+            <a href="#/settings">
+                <div class="con-header">
+                    <div class="con-icon"><i class="icon-cogs"></i></div>
+                    <div class="con-divider"></div>
+                    <div class="con-name">
+                        <h4 class="subheader">Change Settings</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="large-6 columns">
+        <div class="con">
+            <a href="#/help">
+                <div class="con-header">
+                    <div class="con-icon"><i class="icon-info-sign"></i></div>
+                    <div class="con-divider"></div>
+                    <div class="con-name">
+                        <h4 class="subheader">Help</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Info-->
+<div class="row">
+    <div class="large-6 columns">
+        <div class="con con-border">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Specials</h4>
+                </div>
+                <!-- ko if: userSettings().descriptions() == 'On' -->
+                <div class="con-icon-close infoSpecials"><i class="icon-info-sign"></i></div>
+                <!-- /ko -->
+            </div>
+
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb70">Product Name</th>
+                        <th class="tb30">New Price</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: specials">
+                    <tr>
+                        <td class="tb70" data-bind="text: fullName"></td>
+                        <td class="tb30" data-bind="text: sellingPrice"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

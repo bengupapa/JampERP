@@ -1,0 +1,155 @@
+﻿@model JAMP.ViewModels.RegistrationViewModel
+
+@{
+    ViewBag.Title = "Business Register"; 
+}
+
+<div class="mp-body bg-textured">
+    <div class="row">
+        <div class="large-8 push-2">
+            <h3 class="subheader">Register Your Business</h3>
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="large-8 push-2">
+
+                <div class="section-container auto" data-section data-section-resized>
+                    <section>
+                        <h5 class="title" data-section-title><a id="businessSection" href="#businessSection">1. Business Details</a></h5>
+
+                        <div class="content" data-slug="businessSection" data-section-content>
+
+                            <!--BUSINESS DETAILS-->
+                            <div>
+                                <div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.BusRegister.BusinessName)
+                                        @Html.TextBoxFor(m => m.BusRegister.BusinessName)
+                                        @Html.ValidationMessageFor(m => m.BusRegister.BusinessName)
+                                    </div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.BusRegister.BusinessStreet)
+                                        @Html.TextBoxFor(m => m.BusRegister.BusinessStreet)
+                                        @Html.ValidationMessageFor(m => m.BusRegister.BusinessStreet)
+                                    </div>
+                                     <div class="required-feild">
+                                        @Html.LabelFor(m => m.BusRegister.BusinessCity)
+                                        @Html.TextBoxFor(m => m.BusRegister.BusinessCity)
+                                        @Html.ValidationMessageFor(m => m.BusRegister.BusinessCity)
+                                    </div>
+
+                                     <div class="required-feild">
+                                        @Html.LabelFor(m => m.BusRegister.BusinessPostalCode)
+                                        @Html.TextBoxFor(m => m.BusRegister.BusinessPostalCode)
+                                        @Html.ValidationMessageFor(m => m.BusRegister.BusinessPostalCode)
+                                    </div>
+
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.BusRegister.BusinessEmail)
+                                        @Html.TextBoxFor(m => m.BusRegister.BusinessEmail)
+                                        @Html.ValidationMessageFor(m => m.BusRegister.BusinessEmail)
+                                    </div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.BusRegister.BusTelephone)
+                                        @Html.TextBoxFor(m => m.BusRegister.BusTelephone)
+                                        @Html.ValidationMessageFor(m => m.BusRegister.BusTelephone)
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="left" style="margin-left: 8px">
+                                            <a class="button small" onclick="$('#ownerSection').click()">Next</a>
+                                        </div>
+                                        <div class="right" style="margin-right: 8px">
+                                            <a class="button small" href="@Url.Action("index", "home")">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                     <!--OWNER DETAILS-->
+                    <section>
+                        <h5 class="title" data-section-title><a id="ownerSection" href="#ownerSection">2. Owner Details</a></h5>
+                        <div class="content" data-slug="ownerSection" data-section-content>
+
+                            <div>
+                                <div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.EmpRegister.UserName)
+                                        @Html.TextBoxFor(m => m.EmpRegister.UserName)
+                                        @Html.ValidationMessageFor(m => m.EmpRegister.UserName)
+                                    </div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.EmpRegister.LastName)
+                                        @Html.TextBoxFor(m => m.EmpRegister.LastName)
+                                        @Html.ValidationMessageFor(m => m.EmpRegister.LastName)
+                                    </div>
+
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.EmpRegister.Contacts)
+                                        @Html.TextBoxFor(m => m.EmpRegister.Contacts)
+                                        @Html.ValidationMessageFor(m => m.EmpRegister.Contacts)
+                                    </div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.EmpRegister.EmployeeEmail)
+                                        @Html.TextBoxFor(m => m.EmpRegister.EmployeeEmail)
+                                        @Html.ValidationMessageFor(m => m.EmpRegister.EmployeeEmail)
+                                    </div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.EmpRegister.Password)
+                                        <input data-val="true" data-val-required="The Password field is required." id="EmpRegister_Password" name="EmpRegister.Password" type="password" value="">
+                                        @Html.ValidationMessageFor(m => m.EmpRegister.Password)
+                                    </div>
+                                    <div class="required-feild">
+                                        @Html.LabelFor(m => m.EmpRegister.ConfirmPassword)
+                                        <input data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="EmpRegister_ConfirmPassword" name="EmpRegister.ConfirmPassword" type="password" value="">
+                                        @Html.ValidationMessageFor(m => m.EmpRegister.ConfirmPassword)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="left" style="margin-left: 8px">
+                                        <a class="button small" onclick="$('#businessSection').click()">Back</a> &nbsp
+                                        <input class="button small" type="submit" id="submit" value="Submit" />
+                                    </div>
+                                    <div class="right" style="margin-right: 8px">
+                                        <a class="button small" href="@Url.Action("index", "home")">Cancel</a>
+                                    </div>
+                                </div>
+                                @*@Html.ValidationSummary(true)*@
+                            </div>
+
+                        </div>
+
+                    </section>
+                </div>
+
+            </div>
+
+        </div>
+          
+    }
+</div>
+
+@section Scripts {
+     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('.accordion-item-1 .accordion-content').show();
+        });
+
+        function regNavStatusOwner() {
+            document.getElementById('regNav').innerHTML = "Enter owner information"
+        }
+
+        function regNavStatusBusiness() {
+            document.getElementById('regNav').innerHTML = "Enter business details"
+        }
+    </script>
+}

@@ -1,0 +1,204 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Delivery Form</a>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Order form-->
+    <div class="large-6 columns" data-bind="with: order">
+        <div class="con con-border">
+            <span class="left" data-bind="text: completed() == 'Partial' ? 'Partially Completed' : '', css: { 'changed-state-tag-orange': completed() == 'Partial' }"></span>
+
+            <!-- Order form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-copy"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Supplier Details</h4>
+                </div>
+            </div>
+
+            <!-- Order form inputs-->
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Created Date</label>
+                    <input type="text" data-bind="enable: false, value: createdDate">
+                </div>
+                <div class="large-6 columns">
+                    <label>Date Due</label>
+                    <input type="text" data-bind="enable: false, value: dateDue">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Made By</label>
+                    <input type="text" data-bind="enable: false, value: employee().fullName">
+                </div>
+                <div class="large-6 columns">
+                    <label>Supplier</label>
+                    <input type="text" data-bind="enable: false, value: supplier().supplierName">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Notes</label>
+                    <textarea class="textarea-height" placeholder="Additional information..." data-bind="enable: false"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader no-bottom-margin">Products</h4>
+                </div>
+            </div>
+
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <label>Name</label>
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Quantity</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" data-bind="foreach: productOrders">
+                <!-- ko with: product -->
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <input type="text" data-bind="enable: false, value: fullName, css: { 'item-complete': $parent.itemOrderComplete() == 'Complete', 'item-partial': $parent.itemOrderComplete() == 'Partial', 'item-over': $parent.itemOrderComplete() == 'Over' }">
+                    </div>
+                    <div class="small-4 columns">
+                        <input type="text" data-bind="enable: false, value: $parent.quantityOrdered, css: { 'item-complete': $parent.itemOrderComplete() == 'Complete', 'item-partial': $parent.itemOrderComplete() == 'Partial', 'item-over': $parent.itemOrderComplete() == 'Over' }">
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-7 columns">
+                    <h5 class="subheader">Total Cost: </h5>
+                </div>
+                <div class="large-5 columns">
+                    <div class="row collapse">
+                        <div class="small-3 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="text" data-bind="enable: false, value: totalCost">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ko if: order().deliveries().length > 0 && delivery() == null-->
+    
+    <div class="large-6 columns">
+        <h5 class="subheader">Deliveries</h5>
+        <!-- ko foreach: order().deliveries -->
+        <div class="large-12 columns con item-con">
+            <div class="item-info-con">
+                <div class="row">
+                    <div class="small-9 columns">
+                        <p>Date: <span data-bind="text: createdDate()"></span></p>
+                    </div>
+                    <div class="small-3 columns">
+                        <p>View</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+
+    <div data-bind="if: order().deliveries().length == 0" class="large-6 columns wait-load">
+        <h5 class="subheader"> No Deliveries</h5>
+    </div>
+
+    <!-- Delivery form-->
+    <div class="large-6 columns" data-bind="if: delivery() != null">
+        <div class="con con-border" data-bind="with: delivery">
+
+            <!-- Delivery form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-truck"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Delivery Details</h4>
+                </div>
+                <div class="con-icon-close closeForm"><i class="icon-remove"></i></div>
+            </div>
+
+            <!-- Delivery form inputs-->
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Recived Date</label>
+                    <input type="text" data-bind="enable: false, value: createdDate">
+                </div>
+                <div class="large-6 columns">
+                    <label>Recived By</label>
+                    <input type="text" data-bind="enable: false, value: employee().fullName">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Notes</label>
+                    <textarea class="textarea-height" placeholder="Additional information..." data-bind="disable: true"></textarea>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader no-bottom-margin">Products</h4>
+                </div>
+            </div>
+
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <label>Name</label>
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Quantity</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" data-bind="foreach: productDeliveries">
+                <!-- ko with: product -->
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <input type="text" data-bind="enable: false, value: fullName">
+                    </div>
+                    <div class="small-4 columns">
+                        <input type="text" data-bind="value: $parent.quantityDelivered, disable: true" placeholder="e.g. 10">
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>
+

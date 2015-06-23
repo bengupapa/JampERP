@@ -1,0 +1,138 @@
+﻿@model JAMP.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<div class="mp-body  pageBodyHeight">
+    <div class="row ">
+        <div id="homeSection" class="sectionHeight">
+            <div class="row overflowed" > 
+                <div class="mainPanel widthFormatter small-10 small-centered large-12 large-centered columns overflowed bg-textured">
+                    <div class="encloser">
+                        <div class="orbit-container">
+                             @Html.Partial("_profileModal")
+                        </div>
+                    </div> 
+                    <div class="mainPanelFooter">
+                        <br />
+                        <div class="left">
+                            <div class="fb-like" data-href="https://www.facebook.com/pages/TechInsights-Mathprosoft-ISG/371146939610520?ref=hl" data-width="450" data-show-faces="false" data-send="false"></div>
+                        </div>
+                        <div class="right">
+                            <ul id="mainPanelFooterList">
+                                <li>
+                                    <div class="inBoxMarging" style="margin-top:2%">
+                                         <img src="~/Images/facebook.png" style="height:22px; width:22px;margin-top:-5%"/> <h6 class="subheader blockCaption"><a href="https://www.facebook.com/pages/TechInsights-Mathprosoft-ISG/371146939610520">&nbsp Facebook</a></h6>
+                                     </div>
+                                </li>
+                                <li>
+                                    <div class="inBoxMarging" style="margin-top:2px">
+                                         <img src="~/Images/linkedIn.png" style="height:22px; width:22px; margin-top:-5px"/> <h6 class="subheader blockCaption"><a href="http://www.linkedin.com/company/-techinsights">&nbsp LinkedIn</a></h6>
+                                    </div>
+                                </li>
+                                @if (Request.IsAuthenticated)
+                                { }
+                                else
+                                {                            
+                                    <li>
+                                        <div class="inBoxMarging" style="margin-top:2px">
+                                            <div class="regBtn">
+                                                <img src="~/Images/jamp.ico" style="height:22px; width:22px; margin-top:-3.2px; margin-left:2px"/> <h6  class="subheader blockCaption"><a href="/Account/BusinessRegister" style="color:white">&nbsp Register</a></h6>
+                                            </div> 
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        
+                    </div>               
+                </div>
+            </div>
+
+            <div class="row">
+
+                    <div class="large-4 columns small-12" onclick="location.href='@Url.Action("About", "Home")'">
+                        <div class="marginControl block widthDefined mobileFormat bg-textured">
+                            <div class="inBoxMarging" style="margin-top:12px">
+                                <img src="~/Images/jamp.ico" style="height:35px; width:35px;margin-top:-10px"/> <h4 class="subheader blockCaption"><a href="#">&nbsp About Jamp</a></h4>
+                                <p class="inBoxText">
+                                     Jamp is a mobile Enterprise Resource Planning (ERP) system with a focus on small and medium retailers (SMEs) in South Africa. <em>read more...</em>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="large-4 columns small-12" onclick="location.href='@Url.Action("features", "Home")'">
+                        
+                        <div class="marginControl block widthDefined mobileFormat bg-textured">
+                            <div class="inBoxMarging">
+                                <i class="icon-bolt icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Jamp features</a></h4>
+                                <p class="inBoxText">
+                                     Jamp has many useful features tailored to support SMEs and optimize mobile support. <em>read more...</em>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="large-4 columns small-12" onclick="location.href='@Url.Action("Modules", "Home")'">
+                        
+                        <div class="marginControl block widthDefined mobileFormat bg-textured">
+                            <div class="inBoxMarging">
+                                <i class="icon-check icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Jamp modules</a></h4>
+
+                                <p class="inBoxText">
+                                     Like any good ERP system, Jamp is divided into modules that encompass fundamental business operations and are logically linked through a common database. <em>read more...</em>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                
+                <div class="large-4 columns small-12" onclick="location.href='@Url.Action("started", "Home")'">
+                    <div class="marginControl block widthDefined bg-textured">
+                        <div class="inBoxMarging">
+                         
+                                <i class="icon-info-sign icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Getting Started</a></h4>
+                           
+                            <p class="inBoxText">
+                                 What are you waiting for? Follow our simple registration procedure and get Jamping today! Great system, great business!  <em>read more...</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="large-4 columns small-12" onclick="location.href='@Url.Action("support", "Home")'">
+                 
+                    <div class="marginControl block widthDefined mobileFormat bg-textured">
+                        <div class="inBoxMarging">
+
+                                 <i class="icon-medkit icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Support</a></h4>
+
+                            <p class="inBoxText">
+                                 General support information is provided for your convenience. Easy to follow instructions are available to provide you with a good user experience.<em>read more...</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="large-4 columns small-12" onclick="location.href='@Url.Action("Contact", "Home")'">
+                    
+                    <div class="marginControl block widthDefined mobileFormat bg-textured">
+                        <div class="inBoxMarging">
+                             <i class="icon-phone icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Contact us</a></h4>
+                            <p class="inBoxText">
+                                 The Jamp team is available to help you with any problems and queries you may have. Don't be afraid to give us a shout. <em>read more...</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+    </div>
+</div>

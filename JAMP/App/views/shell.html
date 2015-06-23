@@ -1,0 +1,164 @@
+﻿<!-- Content Wrapper -->
+<div id="inner-wrap">
+
+    <!-- Top NavBar -->
+    <nav class="topbar">
+
+        <!-- Left Side Logo & menu toggle -->
+        <section class="topbar-logo">
+            <div id="menu-toogle" class="show-slide"><a id="nav-open-btn" href="#"><i class="icon-list"></i></a></div>
+            <a href="#" data-reveal-id="aboutModal">
+                <img src="../Images/Jamp_logo_inline_greyscale.png" alt="Jamp" /></a>
+        </section>
+
+        <!-- Middle Notifications-->
+        <section id="topbar-notify">
+            <ul>
+                <li class="divider "></li>
+                <li><a href="/Home/Index" title="Go to Home Page"><i class="icon-home"></i></a></li>
+                <li class="divider"></li>
+                <!--<li><a href="#" data-dropdown="inventory-notification"><i class="icon-bell-alt"></i></a></li>-->
+                <!-- ko if: user().roleName() != 'Cashier' -->
+                <li><a href="#" data-dropdown="calendar-notification"><i class="icon-truck" data-bind="style: { color: orders().length > 0 ? 'orange' : 'lightgrey' }"></i></a></li>
+                 <!-- /ko -->
+            </ul>
+        </section>
+
+        <!-- Right Side Profile & Signout-->
+        <section id="topbar-profile">
+            <ul>
+                <li data-bind="css: { active: router.isNavigating }" id="spinner">
+                    <img src="../../Images/loading.gif" alt="loading.." /></li>
+                <li>
+                    <a href="#/Profile" class="user-profile hide-for-small" title="Profile">
+                        <!-- ko with: user -->
+                        <div id="user-name">
+                            <b data-bind="text: firstName"></b>
+                            <p data-bind="text: roleName"></p>
+                        </div>
+
+                        <div id="user-profile-img">
+
+                            <span data-bind="if: imageLocation">
+                                <img class="profile-pic" data-bind="attr: { src: imageLocation }" /><i class="icon-pencil edit-profile"></i>
+                            </span>
+                            <span data-bind="ifnot: imageLocation">
+                                <img class="profile-pic" src="../../Images/ProfilePictures/cookieMonster.png" /><i class="icon-pencil edit-profile"></i>
+                            </span>
+
+                        </div>
+                        <!-- /ko -->
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="#" id="logout-link" title="Sign out" data-reveal-id="signoutModal"><i class="icon-signout"></i></a></li>
+            </ul>
+        </section>
+    </nav>
+
+
+    <!-- NavBar List-->
+    <nav class="nav-list" id="nav">
+        <div id="slide-nav-logo" class="show-slide">
+            <img src="../Images/Jamp_logo_inline.png" alt="Jamp" />
+        </div>
+        <ul>
+            <li class="show-for-small" id="nav-profile"><a href="#/Profile">
+                <!-- ko with: user -->
+                <img class="profile-pic" data-bind="attr: { src: imageLocation }" />
+                <div class="nav-profile-name">
+                    <b data-bind="text: firstName"></b>
+                    <p data-bind="text: roleName"></p>
+                </div>
+                <!-- /ko -->
+            </a>
+            </li>
+            <!-- ko foreach: router.visibleRoutes -->
+            <li data-bind="attr: { id: name }, css: { active: isActive }"><a data-bind="    attr: { href: hash }" href="#">
+                <div class="nav-icon" data-bind="html: settings.navIcon"></div>
+                <div class="nav-divider"></div>
+                <div class="nav-name" data-bind="text: name == 'Activity_Feed' ? 'Activity Feed' : name == 'Quick_Links' ? 'Quick Links' : name"></div>
+            </a>
+            </li>
+            <!-- /ko -->
+        </ul>
+    </nav>
+
+    <!-- Main content frame -->
+    <div id="main" class="content-frame">
+
+        <!-- Content -->
+        <div class="content-box">
+            <div class="content-scrollable">
+                <div class="frame">
+
+                    <!--ko compose: {model: router.activeItem, 
+                                afterCompose: router.afterCompose, 
+                                transition: 'entrance'} -->
+                    <!--/ko-->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Sync info footer -->
+    <footer class="syncbar">
+        <div class="c-sync ">
+            <ul>
+                <li data-bind="if: updateAvailable()">
+                    <p data-bind="text: updateAvailable() ? 'Update Available' : '', css: { 'c-sync-update': updateAvailable() }, click: getUpdates"></p>
+                </li>
+                <li id="spinnerContainer"></li>
+                <li>
+                    <p data-bind="text: busyUpdating() ? 'Updating...' : ''"></p>
+                </li>
+            </ul>
+        </div>
+        <!-- ko with: user -->
+        <div data-bind="click: online() ? null : $parent.reconnect, css: { 'c-state-online': online(), 'c-state-offline': !online() }   ">
+            <p data-bind=" text: online() ? 'Online' : 'Offline [ Reconnect ]' "></p>
+        </div>
+        <!-- /ko -->
+    </footer>
+
+    <!--<div id="inventory-notification" class="notify-drop content small" data-dropdown-content>
+        <div class="notify-header">Notification</div>
+        <div class="notify-body">
+            <ul>
+            <li><a href="#">Message</a></li>
+        </ul>
+            <p>No alerts</p>
+        </div>
+        <div class="notify-footer">
+            <a href="#">View All</a>
+            <a href="#">Clear All</a>
+        </div>
+    </div>-->
+
+    <!-- ko if: user().roleName() != 'Cashier' -->
+    <div id="calendar-notification" class="notify-drop content small" data-dropdown-content>
+        <div class="notify-header">Orders Due Today</div>
+        <div class="notify-body">
+            <!-- ko if: orders().length > 0 -->
+            <!-- ko foreach: orders -->
+            <div class="con">
+                <div class="ordermessage">
+                    Order from <span data-bind="text: supplier().supplierName"></span> is due
+                </div>
+            </div>
+            <!-- /ko -->
+            <!--/ko-->
+
+            <!-- ko if: orders().length == 0 -->
+             <p>No Deliveries</p>
+            <!--/ko-->
+        </div>
+        <div class="notify-footer">
+            <a class="notify-cal-btn">Click on order to see details</a>
+        </div>
+    </div>
+     <!--/ko-->
+</div>
+

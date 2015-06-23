@@ -1,0 +1,40 @@
+/* 
+==========================================================
+					  Profile Pages
+==========================================================
+*/
+/* 
+Variables
+------------------------------------------------------- */
+//Colours
+$proflie-bg-colour:				white;
+$proflie-border-colour:			$colour-grey;
+
+//Hover 
+$proflie-border-colour-hover:	$colour-light-blue;
+$proflie-border-shadow-hover:	0px 0px 1px 0px rgba(1, 167, 226, 0.8);
+
+.profile-pic-large
+{
+  background-color: $con-bg-colour;
+  padding: emCalc(15px);
+  margin-bottom: emCalc(20px);
+  border: 1px solid;
+  cursor: default;
+  border-color: $con-border-colour;
+  height:160px;
+  &:hover {
+    border-color: $proflie-border-colour-hover;
+    -webkit-box-shadow: $proflie-border-shadow-hover;
+    -moz-box-shadow: $proflie-border-shadow-hover;
+    box-shadow: $proflie-border-shadow-hover;
+  }
+}
+@media screen and (max-width: 764px) 
+{
+    .mobileFormat
+    {
+        margin-top:20px
+    }
+
+}

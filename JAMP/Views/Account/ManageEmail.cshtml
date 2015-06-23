@@ -1,0 +1,42 @@
+﻿@model JAMP.Models.AccountModels.ChangeEmail
+
+@{
+    ViewBag.Title = "ManageEmail";
+}
+
+<div class="mp-body bg-textured">
+    <div class="row container">
+
+        <!-- logo container -->
+        <div class="logo-container">
+            <a href="#" class="logo"></a>
+        </div>
+
+        @using (Html.BeginForm("ManageEmail", "Account"))
+        {
+            @Html.AntiForgeryToken()
+
+            <!-- login form details -->
+            <form class="lgoin_form">
+                <div style="margin: 20px; margin-top: 110px">
+
+                    @Html.LabelFor(m => m.OldEmail)
+                    @Html.TextBoxFor(m => m.OldEmail)
+
+                    @Html.LabelFor(m => m.NewEmail)
+                    @Html.TextBoxFor(m => m.NewEmail)
+
+                    @Html.LabelFor(m => m.ConfirmEmail)
+                    @Html.TextBoxFor(m => m.ConfirmEmail)
+                    <div class="left">
+                        <input class="button small" type="submit" id="submit" value="Update" />
+                    </div>
+                    <div class="right">
+                        <a class="button small" href='/App/Jamp#/Profile'>Cancel</a>
+                    </div>
+
+                </div>
+            </form>     
+        }
+    </div>
+</div>

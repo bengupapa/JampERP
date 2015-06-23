@@ -1,0 +1,77 @@
+/* 
+==========================================================
+	            Loading splash screen
+========================================================== 
+*/
+
+//Loading page fill screen
+#loader {
+  position: absolute;
+  z-index: 1444;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $colour-bg-black;
+}
+
+//Loading container of spinner and logo
+#loader-info {
+  position: relative;
+  top: 20%;
+  width: 200px;
+  margin: 0 auto;
+  height: 150px;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+//JAMP logo 
+#loader-logo {
+  background: url(../Images/Jamp_logo.svg) no-repeat center center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+}
+
+//Loading spinner
+#loader-spin {
+  margin-top: 7px;
+  height: 50px;
+  padding-left: 15px;
+}
+
+//Loading text 
+#loader-text h3 {
+  color: grey;
+  line-height: 1.9;
+  font-weight: 100;
+  font-size: 1.6875em;
+  padding-left: 40px;
+}

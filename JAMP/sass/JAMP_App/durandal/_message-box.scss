@@ -1,0 +1,105 @@
+/* 
+==========================================================
+	         Durandal message box styling
+========================================================== 
+*/
+//Background colour
+$durandal-msbox-bg-colour:			white;
+
+//Border
+$durandal-msbox-border-colour:		$colour-light-blue;
+$durandal-msbox-border:				1px solid $durandal-msbox-border-colour;
+$durandal-msbox-border-shadow:		0 3px 7px rgba(0, 0, 0, 0.3);
+
+//Header Border
+$durandal-msbox-head-border-colour:		$colour-light-grey;
+$durandal-msbox-head-border:			1px solid $durandal-msbox-head-border-colour;
+
+//Size
+$durandal-msbox-min-size:			300px;
+$durandal-msbox-max-size:			450px;
+
+.modalBlockout {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;   
+    pointer-events: auto;
+    -webkit-backface-visibility: hidden;   
+    -webkit-transition: opacity 0.1s linear; 
+	-moz-transition: opacity 0.1s linear; 
+	-o-transition: opacity 0.1s linear;
+	transition: opacity 0.1s linear; 
+}
+
+.modalHost {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: opacity 0.1s linear; 
+	-moz-transition: opacity 0.1s linear; 
+	-o-transition: opacity 0.1s linear;
+	transition: opacity 0.1s linear;
+}
+
+.messageBox {
+    background-color: $durandal-msbox-bg-colour;
+    border: $durandal-msbox-border;
+    outline: none;
+	padding: 10px;
+    -webkit-box-shadow: $durandal-msbox-border-shadow;
+    -moz-box-shadow: $durandal-msbox-border-shadow;
+    box-shadow: $durandal-msbox-border-shadow;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    min-width: $durandal-msbox-min-size;
+	max-width: $durandal-msbox-max-size;
+	text-align:center;
+	.modal-header{
+	border-bottom: $durandal-msbox-head-border;
+		h3{
+		margin-bottom:0;
+		}
+	}
+	.modal-body{
+	margin-top:10px;
+		label{
+		text-align:left;
+		}
+		ul{
+		overflow: auto;
+		max-height: 200px;
+		}
+		ul.product-search{
+		list-style: none;
+		text-align: left;
+		margin-bottom:3px;
+			li{
+			width:100%;
+			display: block;
+			height:40px;
+			.add-btn, .product-name{
+				position: relative;
+			}
+			.add-btn{
+				float: left;
+				padding-right:10px;
+				width:45px;
+			}
+			.product-name{
+				white-space: nowrap;
+				overflow: hidden;
+				position: relative;
+				float: left;
+				width: 215px;
+			}			
+			}
+		}
+	}
+}

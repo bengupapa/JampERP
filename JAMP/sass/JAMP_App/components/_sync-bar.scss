@@ -1,0 +1,72 @@
+/* 
+==========================================================
+	              Footer - Sync Bar
+========================================================== 
+*/
+/* 
+Variables
+------------------------------------------------------- */
+$sync-bar-bg-colour:				$colour-bg-black;
+$sync-bar-offline-bg-colour:		$colour-red-notify;
+$sync-bar-online-bg-colour:			$colour-green-notify;
+$sync-bar-update-bg-colour:			rgba(248, 148, 6, 0.5); //orange
+
+.syncbar {
+  padding: 3px 3px 0px 3px;
+  width: inherit;
+  height: 25px;
+  position: fixed;
+  bottom: 0px;
+  background-color: $sync-bar-bg-colour;
+  color: white;
+}
+
+.c-sync, .c-state-offline, .c-state-online {
+  margin: 2px 7px 0px 7px;
+  height: 18px;
+}
+
+.c-sync {
+  left: 0;
+  float: left;
+  ul{
+	list-style:none;
+	li{
+		display: inline;
+		float: left;
+	}
+  }
+}
+#spinnerContainer {
+    width:25px;
+    height:25px;
+    margin: 8px 0 0 5px;
+}
+
+.syncbar {
+  p {
+    line-height: 1.4;
+    padding: 0 2px;
+    font-size: 12px;
+    color: white;
+  }
+  .c-state-offline, .c-state-online {
+	right: 0;
+	float: right;
+  }
+  .c-state-online p, .c-state-offline p{
+	padding: 0 5px;
+  }
+  .c-state-online p {
+    background-color: $sync-bar-online-bg-colour;
+  }
+  .c-state-offline p{
+	background-color: $sync-bar-offline-bg-colour;
+	cursor: pointer;
+  }
+  .c-sync-update{
+	background-color: $sync-bar-update-bg-colour;
+	padding: 0 5px;
+	cursor:pointer;
+  }
+}

@@ -1,0 +1,57 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack, visible: canEdit" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title + ': ' + categoryList().length"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Category Options</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Search & button options -->
+<div class="row">
+    <div class="large-10 large-centered columns">
+        <div class="row collapse item-search">
+            <div class="small-10 columns">
+                <input type="text" data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Search categories">
+            </div>
+            <div class="small-2 columns">
+                <span class="postfix"><i class="icon-search"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Category list -->
+<div class="row">
+
+    <!-- ko foreach: filteredItems -->
+    <div class="large-4 columns dash-list" data-bind=" visible: $parent.filteredItems">
+        <div class="large-12 columns con item-con">
+            <div class="item-info-con">
+                <h4 class="subheader" data-bind="text: categoryName"></h4>
+                <p>No. of Products: <span data-bind="text: activeCount" class="item-count"></span></p>
+            </div>
+            <div class="item-edit" data-bind="if: $parent.canEdit">
+                <button class="cat-edit">Edit</button>
+                <button class="cat-del" data-bind="enable: productList().length < 1">Delete</button>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <div class="large-4 columns" data-bind="if: canEdit">
+        <div class="large-12 columns add-item-btn" data-bind="click: addCategory">
+            <i class="icon-plus"></i>
+        </div>
+    </div>
+
+</div>
+<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: emptyList">..No results..</h5>
+</div>
+<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: !filteredItems">Loading ... </h5>
+</div>
+

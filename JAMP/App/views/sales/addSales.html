@@ -1,0 +1,194 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row full-width">
+    <div class="large-12 columns content-name">
+        <a data-bind="click: goBack"><i class="icon-chevron-left pull-left icon-border back-btn" title="Back"></i></a>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Create a Sale</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Search bar-->
+<div class="row">
+    <div class="large-12 columns">
+        <div class="small-12 large-8 columns">
+            <div class="row collapse item-search">
+                <div class="small-10 columns">
+                    <input data-bind="value: filter, valueUpdate: 'afterkeydown', disable: saleDisable" type="text" placeholder="Search Product">
+                </div>
+                <div class="small-2 columns">
+                    <span class="postfix"><i class="icon-search"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="row option-btn">
+            <div class="large-3 small-6 columns">
+                <button data-bind="click: addCustomer, disable: hasCustomer() || saleDisable()">Customer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="warning-notice small-10 large-8 large-centered small-centered columns" data-bind="if: saleDisable()">
+    <h5 class="subheader header-wrap"><i class="icon-warning-sign"></i>Sales is Currently Disabled</h5>
+</div>
+
+<!-- Sales form-->
+<div class="row" data-bind="if: sale() != null">
+    <div class="large-6 columns">
+        <div class="con con-border">
+
+            <!-- Search Results header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Search Results</h4>
+                </div>
+            </div>
+
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb50">Product Name</th>
+                        <th class="tb25">Price (R)</th>
+                        <th class="tb25"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- ko foreach: filteredItems -->
+                    <tr>
+                        <td class="tb50" data-bind="text: fullName"></td>
+                        <td class="tb25 currency-align" data-bind="text: sellingPrice().toFixed(2)"></td>
+                        <td>
+                            <a class="tb25 add-remove-btn" data-bind="click: $parent.addItem">Add</a></td>
+                    </tr>
+                    <!-- /ko -->
+
+                </tbody>
+            </table>
+            <h5 class="subheader" data-bind="visible: filteredItems() == 0">..No results..</h5>
+        </div>
+    </div>
+
+    <!-- Sales form-->
+    <div class="large-6 columns">
+        <div class="con con-border">
+
+            <!-- Sale form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Sale Details</h4>
+                </div>
+            </div>
+             <!-- ko if: checkCustomerCredit()-->
+            <p data-bind="css: { 'last-seen-offline': checkCustomerCredit() }"> Not enough credit</p>
+            <!-- /ko -->
+            <!-- Sale form inputs-->
+            <form>
+                <!-- ko foreach: salelist -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="large-12 columns con item-con">
+                            <div class="item-info-con no-leftmargin">
+                                <div class="sale-increase-decrease">
+                                    <div class="increse-sale increaseQuantity"><i class="icon-chevron-up"></i></div>
+                                    <div class="decrease-sale decreaseQuantity"><i class="icon-chevron-down"></i></div>
+                                </div>
+                                <div class="sale-details">
+                                    <div class="row">
+                                        <!-- ko with: product -->
+                                        <div class="small-11 columns">
+                                            <p data-bind="text: fullName"></p>
+                                        </div>
+                                        <!-- /ko -->
+                                        <div class="small-1 columns">
+                                            <div class="right">
+                                                <a class="cat-del" data-bind="click: $parent.removeItem"><i class="icon-remove"></i></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-6 columns">
+                                            <p>Quantity: <span data-bind="text: quantity" class="item-count"></span></p>
+                                        </div>
+                                        <div class="small-6 columns">
+                                            <!-- ko with: product -->
+                                            <div class="right">
+                                                <p><span>R</span><span data-bind="text: sellingPrice().toFixed(2)"></span></p>
+                                            </div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko-->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="small-6 columns">
+                                <h5 class="subheader">Subtotal</h5>
+                            </div>
+                            <div class="small-2 columns">
+                                <span class="prefix">R</span>
+                            </div>
+                            <div class="small-4 columns">
+                                <input type="text" data-bind="value: saleTotal, enable: false" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-bind="with: sale().customer">
+                    <span class="right" data-bind="click: $parent.removeCustomer"><i class="icon-remove"></i></span>
+                    <div class="large-12 columns">
+                        <div class="row">
+                            <div class="small-5 columns">
+                                <h5 class="subheader">Customer:</h5>
+                            </div>
+                            <div class="small-7 columns">
+                                <input type="text" data-bind="value: customerName, enable: false" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="small-5 columns">
+                                <h5 class="subheader">Balance:</h5>
+                            </div>
+                            <div class="small-2 columns">
+                                <span class="prefix">R</span>
+                            </div>
+                            <div class="small-5 columns">
+                                <input type="text" data-bind="value: customerAccount().amountOwing, enable: false" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="small-5 columns">
+                                <h5 class="subheader">Limit:</h5>
+                            </div>
+                            <div class="small-2 columns">
+                                <span class="prefix">R</span>
+                            </div>
+                            <div class="small-5 columns">
+                                <input type="text" data-bind="value: customerAccount().creditLimit, enable: false" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button data-bind="click: enterReceivedAmount, enable: salelist().length > 0">Cash</button>
+                <button data-bind="click: finishSale, enable: hasCustomer() && salelist().length > 0 && !checkCustomerCredit()">Credit</button>
+            </form>
+        </div>
+    </div>
+</div>

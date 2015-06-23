@@ -1,0 +1,72 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Payment Form</a>
+        </nav>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border" data-bind="with: payments">
+            <span class="changed-state-tag left" data-bind="visible: $parent.hasChanges">New Payment</span>
+
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-money"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Enter Payment Details</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h6 class="subheader">Created: <span data-bind="text: createdDate"></span></h6>
+                     <h6 class="subheader">Balance Owing: R<span data-bind="text: $parent.account().supplierAccount().amountOwed"></span></h6>
+                    <label>Account Name</label>
+                    <input type="text" data-bind="value: $parent.account().supplierAccount().accountName, enable: false">
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Supplier Name</label>
+                    <input type="text" data-bind="value: $parent.account().supplierName, enable: false">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Amount</label>
+
+                    <div class="row collapse">
+                        <div class="small-2 columns large-1">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns large-11">
+                            <input type="text" data-bind="value: amountPaid" placeholder="e.g. 52.36">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Reference</label>
+                    <input type="text" data-bind="value: reference" placeholder="e.g. ZXCES25221">
+                </div>
+            </div>
+
+            <button data-bind="click: $parent.cancel, enable: $parent.canSave">
+                <i class="icon-undo"></i>Cancel</button>
+            <button data-bind="click: $parent.save, enable: $parent.canSave">
+                <i class="icon-save"></i>Save</button>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,116 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Customer Form</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Customer details form-->
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border">
+            <span class="changed-state-tag left" data-bind="visible: hasChanges">New Customer</span>
+
+            <!-- Customer form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-male"></i><i class="icon-female"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Enter Details</h4>
+                </div>
+            </div>
+
+            <!-- Customer form inputs-->
+            <!-- ko with: customer -->
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Name</label>
+                    <input type="text" data-bind="value: customerName" placeholder="e.g. John">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Surname</label>
+                    <input type="text" data-bind="value: customerSurname" placeholder="e.g. Doe">
+                </div>
+            </div>
+
+             <div class="row ">
+                <div class="large-12 columns">
+                    <label>Payment Dates</label>
+                    <div class="row collapse" >
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="datepicker: $parent.account().paymentDate, datepickerOptions: { format: 'YYYY-MM-DD' }" placeholder="e.g. 2013-09-10">
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix calendar-icon-center"><i class="icon-calendar"></i></span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Address</label>
+                    <input type="text" data-bind="value: address" placeholder="e.g. 59 Tonner North Road">
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Post Code</label>
+                    <input type="text" data-bind="value: postCode" placeholder="e.g. 7500">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Contact Number</label>
+                    <input type="text" data-bind="value: custContacts" placeholder="e.g. 52">
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Email</label>
+                    <input type="text" data-bind="value: custEmail" placeholder="e.g. myaddress@mail.co.za">
+                </div>
+            </div>
+             <!-- /ko -->
+
+            <!-- ko with: account -->
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Credit Limit</label>
+
+                    <div class="row collapse">
+                        <div class="small-2 columns large-1">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns large-11">
+                             <input type="text" data-bind="value: creditLimit" placeholder="e.g. 100">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Comments</label>
+                    <textarea data-bind="value: comments" placeholder="e.g. general comments on account"></textarea>
+                </div>
+            </div>
+             <!-- /ko -->
+            <button data-bind="click: cancel, enable: canSave">
+                <i class="icon-undo"></i>Cancel</button>
+            <button data-bind="click: save, enable: canSave">
+                <i class="icon-save"></i>Save</button>
+        </div>
+    </div>
+</div>
+
+

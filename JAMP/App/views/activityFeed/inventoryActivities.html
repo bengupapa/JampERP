@@ -1,0 +1,112 @@
+﻿<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Inventory Activities</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Products -->
+<div class="row">
+    <!-- Added -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Products Additions</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Name</th>
+                        <th class="tb40">Created</th>
+                        <th class="tb30">Made By</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: addedProductList">
+
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb30" data-bind="text: employee().fullName "></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Removed -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Products Removal</h4>
+                </div>
+            </div>
+            <table class="table-full-width" data-bind="if: deletedProductList().length > 0">
+                <thead>
+                    <tr>
+                        <th class="tb40">Name</th>
+                        <th class="tb40">Created</th>
+                        <th class="tb40">Removed</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width" data-bind="if: deletedProductList().length > 0">
+                <tbody data-bind="foreach: deletedProductList">
+                    <tr>
+                        <td class="tb40" data-bind="text: fullName"></td>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb40" data-bind="text: archivedDate"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p data-bind="if: deletedProductList().length == 0">No produts Deleted</p>
+        </div>
+    </div>
+
+    <!-- Incidents -->
+    <div class="large-6 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-rss"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Recent Incidents</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Date Recorded</th>
+                        <th class="tb40">Type</th>
+                        <th class="tb40">Recorded By</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: incidentList">
+
+                    <tr>
+                        <td class="tb40" data-bind="text: createdDate"></td>
+                        <td class="tb40" data-bind="text: type"></td>
+                        <td class="tb40" data-bind="text: employee().fullName "></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

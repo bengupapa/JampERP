@@ -1,0 +1,129 @@
+﻿@model JAMP.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "Modules";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<div class="mp-body pageBodyHeight">
+    <div class="row ">
+        <div id="modulesSection" class="sectionHeight">
+            <div class="row">
+                <div class="widthFormatter sectionBanner overflowed bg-textured">
+                    <div class="inBoxText centered inBoxMarging" >
+                         <h2 class="subheader sectionCaption">Jamp Modules</h2>
+                    </div> 
+                     <div  class="sectionButton">
+                        <a class="icon-home sectionCaption" href="@Url.Action("Index","Home")">&nbsp HOME</a>
+                    </div> 
+                </div>
+            </div>
+            <div class="row">             
+                <div class="large-4 columns small-12">
+            
+                    <div class="marginControl block widthDefined bg-textured">
+                        <div class="inBoxMarging">
+                            <i class="icon-shopping-cart icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Point of sale</a></h4>
+                            <p class="inBoxText">
+                                 The Sales module allows the user to conveniently and easily make sales through a simple search and select process. Summaries of Sales made are also available as well as the ability to view past sales by date.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12">
+                 
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-tags icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Inventory</a></h4>
+                            <p class="inBoxText">
+                                 The Inventory is a vital part for any business. It provides detailed information about a business's products, allows for flexible categorization of products, tracks inventory levels and turnover rates, and reporting of incidents.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12">
+                    
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-strikethrough icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Suppliers</a></h4>
+                            <p class="inBoxText">
+                                 An efficient business needs efficient suppliers and the Jamp Suppliers module helps a business keep track of its orders made to and deliveries from its suppliers. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                
+                <div class="large-4 columns small-12">
+                    
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                           <i class="icon-male icon-2x subheader"></i><i class="icon-female icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Customers</a></h4>
+                            <p class="inBoxText">
+                                 Good customer relationship managemnt goes a long way in shaping a successful business. Jamp, being aimed at SMEs, provides a simple Customer module for tracking customer accounts and credit status.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12">
+          
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-group icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Employees </a></h4>
+                            <p class="inBoxText">
+                                 Employees with access to the system in the roles of manager or cashier can be managed with Jamp's Employee module.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12">
+           
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-bar-chart icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Business intelligence</a></h4>
+                            <p class="inBoxText">
+                                 Business intelligence is about making the right decisions based on reliable information. Jamp provides informative reports in the form of charts and tables to facilitate good business management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+             <br />
+            <div class="row">                        
+                <div class=" block mobileFormat bg-textured small-10 small-centered large-12 large-centered widthFormatter">
+                        <div class="large-12 columns" style="text-align:center">
+                            <h4 class="subheader">&nbsp Supporting subsystems</h4>
+                        </div>
+                        
+                        <div class="large-4 columns marginControl">
+                            <i class="icon-rss icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Activity feeds</a></h4>
+                            <p class="inBoxText">
+                                 A summary of the most recent activities by employees is provided in order to prevent unauthorized use and access.
+                            </p>
+                        </div>
+
+                        <div class="large-4 columns marginControl">
+                            <i class="icon-cogs icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp User settings</a></h4>
+                            <p class="inBoxText">
+                                 A user is able to adjust the system's settings according to his/her preferences.
+                            </p>
+                        </div>
+
+                        <div class="large-4 columns marginControl">
+                            <i class="icon-bell-alt icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Notifications</a></h4>
+                            <p class="inBoxText">
+                                 Notifications are provided to alert a user of low stock levels, order arrivals and more.
+                            </p>
+                        </div>
+
+               
+                </div>          
+             </div>
+        </div>
+    </div>
+</div>

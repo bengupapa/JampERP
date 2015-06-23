@@ -1,0 +1,141 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Product Form</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Product details form-->
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border" data-bind="with: product">
+            <span class="changed-state-tag left" data-bind="visible: $parent.hasChanges">New Product</span>
+            <!-- Product form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tags"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Enter Details</h4>
+                </div>
+            </div>
+
+            <!-- Product form inputs-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Brand</label>
+                    <input type="text" data-bind="value: brandName" placeholder="e.g. Fanta">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Name</label>
+                    <input type="text" data-bind="value: productName" placeholder="e.g. Orange">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Size</label>
+                    <input type="text" data-bind="value: size" placeholder="e.g. 310ml">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Quantity</label>
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: quantity" placeholder="e.g. 52">
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix">Units</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="large-6 columns">
+                    <label>Re-Order Level</label>
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: reorderLevel" placeholder="e.g. 20">
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix">Units</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="large-6 columns">
+                    <label>Cost Price</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: costPrice" placeholder="e.g. 12.58">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="large-6 columns">
+                    <label>Selling Price</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: sellingPrice" placeholder="e.g. 19.99">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="large-12 columns">
+                    <label>Category</label>
+                    <select data-bind="options: $parent.categoryList, optionsText: 'categoryName', value: category,  optionsCaption: '…Please select an category …'">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Description</label>
+                    <textarea class="textarea-height" data-bind="value: description" placeholder="e.g. Orange flavoured soft drink"></textarea>
+                </div>
+            </div>
+
+            <hr class="divider-small-margin" />
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-8 columns">
+                        <p>On Special</p>
+                    </div>
+                    <div class="small-4 columns">
+                        <div class="switch small">
+                            <input id="specialNo" name="special-switch" type="radio" value="No" data-bind="checked: special">
+                            <label for="specialNo" onclick="">Off</label>
+
+                            <input id="specialYes" name="special-switch" type="radio" value="Yes" data-bind="checked: special">
+                            <label for="specialYes" onclick="">On</label>
+
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button data-bind="click: $parent.cancel">
+                <i class="icon-undo"></i>Cancel</button>
+            <button data-bind="click: $parent.save, enable: $parent.canSave">
+                <i class="icon-save"></i>Save</button>
+        </div>
+    </div>
+</div>

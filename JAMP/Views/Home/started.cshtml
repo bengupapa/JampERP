@@ -1,0 +1,139 @@
+﻿@model JAMP.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "started";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<div class="mp-body pageBodyHeight">
+    <div class="row ">
+        <div id="startedSection" class="sectionHeight">
+            <div class="row">
+                <div class="widthFormatter sectionBanner overflowed bg-textured">
+                    <div class="inBoxText centered inBoxMarging" >
+                         <h2 class="subheader sectionCaption">Getting Started</h2>
+                    </div>
+                    <div  class="sectionButton">
+                        <a class="icon-home sectionCaption" href="@Url.Action("Index","Home")">&nbsp HOME</a>
+                    </div> 
+                </div>
+            </div>
+            <div class="row">             
+                <div class="large-4 columns small-12">
+            
+                    <div class="marginControl block widthDefined bg-textured">
+                        <div class="inBoxMarging">
+                            <i class="icon-building icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Register business</a></h4>
+                            <p class="inBoxText">
+                                 Follow our easy registration procedure and provide your business and personal details.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12">
+                 
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-male icon-2x subheader"></i><i class="icon-female icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Register employee</a></h4>
+                            <p class="inBoxText">
+                                 Have Employees? Jamp allows you to create accounts for them and give them access to the system according to their roles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12" >
+                    
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-gift icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Add products</a></h4>
+                            <p class="inBoxText">
+                                 Add and categorise your products according to your individual business needs. Maximum flexibility provided by Jamp!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                
+                <div class="large-4 columns small-12" >
+                    
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-truck icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Manage suppliers</a></h4>
+                            <p class="inBoxText">
+                                 Create supplier accounts and keep track of orders and deliveries.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12" >
+          
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-group icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Manage customers</a></h4>
+                            <p class="inBoxText">
+                                 Create customer accounts and maintain effective customer relationships.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12" >
+           
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-shopping-cart icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Sell products</a></h4>
+                            <p class="inBoxText">
+                                 With Jamp, the sale process is as easy and searching, selecting and submitting. Cash and credit sales supported.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+             <br />
+            <div class="row">
+                
+                <div class="large-4 columns small-12" >
+                 
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-tags icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Track inventory</a></h4>
+                            <p class="inBoxText">
+                                 With Jamp, keeping track of your inventory is kept simple to enable you to view only the most important information.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12" onclick="location.href='@Url.Action("Contact", "Home")'">
+        
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-bar-chart icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp View reports</a></h4>
+                            <p class="inBoxText">
+                                 Attractive and informative reports come in the form of tables and charts for your benefit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="large-4 columns small-12">
+                
+                    <div class="marginControl block widthDefined mobileFormat bg-textured"">
+                        <div class="inBoxMarging">
+                            <i class="icon-thumbs-up icon-2x subheader"></i><h4 class="subheader blockCaption"><a href="#">&nbsp Get value</a></h4>
+                            <p class="inBoxText">
+                                 Choose Jamp today to get the best value in electronic business management. Cheap, effective and intuitive. Go mobile, Go Jamp!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,84 @@
+/* 
+==========================================================
+					  Button Options
+==========================================================
+*/
+/* 
+Button Variables
+------------------------------------------------------- */
+//Colour
+$btn-bg-colour:				$colour-dark-blue;
+$btn-bg-colour-disabled:	$colour-grey;
+$btn-text-colour:			white;
+$btn-border-colour:			$colour-dark-blue;
+$btn-border:				1px solid $colour-dark-blue;
+
+//Hover
+$btn-bg-colour-hover:		$colour-light-blue;
+
+//Text
+$btn-text-align:			center;
+
+//Find list
+$add-remove-btn-colour:				white;
+$add-remove-btn-bg-colour:			$colour-dark-blue;
+$add-remove-btn-bg-colour-hover:	$colour-light-blue;
+
+/* 
+Summary page button options
+------------------------------------------------------- */
+.option-btn p{
+    background-color:$btn-bg-colour;
+	border: $btn-border;
+    color:$btn-text-colour;
+    width:130px;
+    text-align:$btn-text-align;
+    padding:5px 0;
+    margin-right:auto;
+    margin-left:auto;
+}
+.option-btn p:hover{
+    background-color:$btn-bg-colour-hover;
+}
+button, .button {
+	@include button-base;
+	@include button-size;
+	@include button-style($btn-bg-colour, false, false);
+	font-weight: normal;
+    &:hover,
+    &:focus { 
+		background-color: $btn-bg-colour-hover;
+	}
+	&.disabled, &[disabled] {
+		 background-color: grey;
+	}
+	i {
+		margin-left: -10px;
+		margin-right: 4px;
+	}
+}
+.postfix{
+	&.button {
+		height: 32px;
+		background-color: $btn-bg-colour;
+		color:white;
+		margin-bottom:0;
+		border: $btn-border;
+		line-height: emCalc(30px);
+		&:hover,&:focus{
+			background-color: $btn-bg-colour-hover;
+		}
+	}
+}
+.add-remove-btn {
+	color:$add-remove-btn-colour;
+	background-color: $add-remove-btn-bg-colour;
+	padding: 2px 5px;
+	&:hover, &:focus{
+		color:$add-remove-btn-colour;
+		background-color: $add-remove-btn-bg-colour-hover;
+	}
+}
+.btn-full-width button{
+	width: 100%;
+}

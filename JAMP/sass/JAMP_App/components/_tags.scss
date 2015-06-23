@@ -1,0 +1,54 @@
+/* 
+==========================================================
+	               Tag styles
+==========================================================
+*/
+/* 
+Variables
+------------------------------------------------------- */
+//Item complete
+$tag-item-colour:							white;
+$tag-item-complete-bg-colour:				$colour-green-notify;
+$tag-item-partial-bg-colour:				$colour-orange-notify;
+$tag-item-over-bg-colour:					$colour-red-notify;
+
+//Tag status
+$tag-status-colour:							white;
+$tag-status-bg-green:						$colour-green-notify;
+$tag-status-bg-red:							$colour-red-notify;
+
+/* 
+Delivery order item completed
+------------------------------------------------------- */
+.item-complete {
+	background-color: $tag-item-complete-bg-colour !important;
+	color: $tag-item-colour !important;
+}
+.item-partial {
+	background-color: $tag-item-partial-bg-colour !important;
+}
+.item-over{
+	background-color: $tag-item-over-bg-colour !important;
+	color: $tag-item-colour !important;
+}
+.delivery-quantity-need{
+	padding:0;
+	padding-left: 12px;
+	p{
+		line-height: 2.2em;
+		margin-bottom: 0;
+	}
+}
+/* 
+Product Incident status
+------------------------------------------------------- */
+.tag-red,.tag-green{
+	color: $tag-status-colour !important;
+	padding: 2px 5px;
+}
+.tag-red{
+	background-color: $tag-status-bg-red;
+}
+.tag-green{
+	background-color: $tag-status-bg-green;
+}

@@ -1,0 +1,54 @@
+//=======================================================================================	           
+//=======================================================================================
+// *      _______        _     _____           _       _     _        
+// *     |__   __|      | |   |_   _|         (_)     | |   | |       
+// *        | | ___  ___| |__   | |  _ __  ___ _  __ _| |__ | |_ ___  
+// *        | |/ _ \/ __| '_ \  | | | '_ \/ __| |/ _` | '_ \| __/ __| 
+// *        | |  __/ (__| | | |_| |_| | | \__ \ | (_| | | | | |_\__ \ 
+// *        |_|\___|\___|_| |_|_____|_| |_|___/_|\__, |_| |_|\__|___/ 
+// *                                              __/ |               
+// *                                             |___/ 
+// * Copyright ©  TechInsights 2013
+//=======================================================================================
+							/*!	JAMP SPA stylesheet */
+//=======================================================================================
+
+//Normalize HTML structure
+@import "normalize";
+
+//Colour variables
+@import "JAMP_App/components/colours";
+
+//Override variables
+@import "JAMP_App/components/overrides";
+
+//foundation 
+@import "foundation",
+		"foundation.mvc";
+
+//Loading screen scss
+@import "JAMP_App/pages/loading-screen";
+
+//JAMP componets
+@import "JAMP_App/components/topbar",
+		"JAMP_App/components/structure",
+		"JAMP_App/components/nav-list",
+		"JAMP_App/components/sync-bar",
+		"JAMP_App/components/notification",
+		"JAMP_App/components/container-panels",
+		"JAMP_App/components/breadcrumbs",
+		"JAMP_App/components/button",
+		"JAMP_App/components/tags";
+
+//JAMP Durandal theme
+@import "JAMP_App/durandal/message-box";
+
+//JAMP pages
+@import "JAMP_App/pages/about-modal",
+		"JAMP_App/pages/signout-modal",
+		"JAMP_App/pages/inventory",
+		"JAMP_App/pages/suppliers",
+		"JAMP_App/pages/sales",
+		"JAMP_App/pages/profile",
+		"JAMP_App/pages/settings",
+		"JAMP_App/pages/employee";

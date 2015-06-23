@@ -1,0 +1,70 @@
+﻿@model JAMP.Models.AccountModels.LoginModel
+
+@{
+    ViewBag.Title = "Sign In";
+}
+
+<div class="mp-body bg-textured">
+    <!--Login contrainer-->
+    <div class="container">
+
+        <!-- logo container -->
+        <div class="logo-container">
+            <a href="#" class="logo"></a>
+        </div>
+
+        <!-- login form details -->
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+        
+            <div class="login_form">
+                <div class="row">
+                    <div class="large-12 columns">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="left">
+                            @Html.CheckBoxFor(m => m.RememberMe) &nbsp
+                        </div>
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <input class="button small" type="submit" id="submit" value="Sign In" />
+                    </div>
+                </div>
+                @Html.ValidationSummary(true)
+
+                <div class="row manageLogin">
+                    <a href="@Url.Action("BusinessRegister", "Account")" title="Register business">Register </a>|<a 
+                        href="@Url.Action("LoginRecovery", "Account")" title="Recover password"> Recover password </a>|<a 
+                            href="@Url.Action("Index", "Home")" title="Cancel"> Cancel</a>
+                </div>
+            </div>
+        
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

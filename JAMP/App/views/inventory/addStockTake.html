@@ -1,0 +1,187 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Inventory Count</a>
+        </nav>
+    </div>
+</div>
+
+<div class="row" data-bind="if: category() == null">
+    <h4 class="subheader">Select a Category</h4>
+    <!-- ko foreach: categoryList -->
+    <div class="large-4 columns dash-list" data-bind=" visible: $parent.categoryList">
+        <div class="large-12 columns con item-con">
+            <div class="item-info-con">
+                <h4 class="subheader" data-bind="text: categoryName"></h4>
+                <p>No. of Products: <span data-bind="text: activeCount" class="item-count"></span></p>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+
+<div class="row" data-bind="if: displayRecount">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border">
+            <span class="changed-state-tag left" data-bind="text: secondCheckList().length > 0 ? 'Re-count' : 'New Count'"></span>
+            <!-- Stock take form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tasks"></i></div>
+                <div class="con-divider"></div>
+                <!-- ko with: category -->
+                <div class="con-name">
+                    <h4 class="subheader">Products : <span data-bind="text: categoryName"></span></h4>
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <!-- ko if: secondCheckList().length == 0 -->
+            <!-- Stock take form inputs-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-9 columns">
+                        <label>Product Name</label>
+                    </div>
+                    <div class="small-3 columns">
+                        <label>Quantity</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stock take product list-->
+            <div class="row" data-bind="foreach: category().productList">
+                <!-- ko if: !archived() -->
+                <div class="large-12 columns">
+                    <div class="small-9 columns">
+                        <input type="text" data-bind="enable: false, value: fullName">
+                    </div>
+                    <div class="small-3 columns">
+                        <input type="text" data-bind="value: stockCountQuantity, valueUpdate: 'afterkeydown'">
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <button data-bind="click: checkQuantity">
+                <i class="icon-check"></i>Check</button>
+            <!-- /ko -->
+
+            <!-- ko if: secondCheckList().length > 0 -->
+            <h6 class="subheader">Please re-count the following:</h6>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="small-9 columns">
+                        <label>Product Name</label>
+                    </div>
+                    <div class="small-3 columns">
+                        <label>Quantity</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" data-bind="foreach: secondCheckList">
+                <div class="large-12 columns">
+                    <div class="small-9 columns">
+                        <input type="text" data-bind="enable: false, value: fullName">
+                    </div>
+                    <div class="small-3 columns">
+                        <input type="text" data-bind="value: stockCountQuantity, valueUpdate: 'afterkeydown'">
+                    </div>
+                </div>
+            </div>
+
+            <button data-bind="click: secondCheck">
+                <i class="icon-check"></i>Submit</button>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+
+<!-- Stock take summary-->
+<div class="row" data-bind="if: canShowSummary">
+    <div class="large-8 large-centered columns" data-bind="with: incident">
+        <div class="con con-border">
+            <span class="changed-state-tag-green left" data-bind="">Completed</span>
+            <!-- Stock take header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-tasks"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Stock Take Summary</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Products Counted</label>
+                    <input type="text" data-bind="enable: false, value: $parent.category().activeCount()" />
+                </div>
+                <div class="large-6 columns">
+                    <label>Counted By</label>
+                    <input type="text" data-bind="enable: false, value: employee().fullName" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Correct</label>
+                    <input type="text" data-bind="enable: false, value: $parent.category().activeCount() - $parent.secondCheckList().length" />
+                </div>
+                <div class="large-6 columns">
+                    <label>Date</label>
+                    <input type="text" data-bind="enable: false, value: dateName" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Notes</label>
+                    <textarea class="textarea-height" data-bind="value: notes" placeholder="Additional information"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4 class="subheader">Products</h4>
+                </div>
+                <div class="large-12 columns" data-bind="if: $parent.productIncidentList().length > 0">
+                    <div class="small-6 columns">
+                        <label>Name</label>
+                    </div>
+                    <div class="small-3 columns">
+                        <label>Quantity</label>
+                    </div>
+                     <div class="small-3 columns">
+                        <label>Counted</label>
+                    </div>
+                </div>
+                <div class="large-12 columns" data-bind="if: $parent.productIncidentList().length == 0">
+                    <h5 class="subheader">..All product correct..</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns" data-bind="foreach: $parent.productIncidentList()">
+                    <div class="small-6 columns">
+                        <input type="text" data-bind="enable: false, value: product().fullName">
+                    </div>
+                    <div class="small-3 columns">
+                        <input type="text" data-bind="enable: false, value: product().quantity">
+                    </div>
+                    <div class="small-3 columns">
+                        <input type="text" data-bind="enable: false, value: product().stockCountQuantity">
+                    </div>
+                </div>
+            </div>
+
+            <button data-bind="click: $parent.goBack">
+                <i class="icon-undo"></i>Cancel</button>
+            <button data-bind="click: $parent.save, enable: $parent.canSave">
+                <i class="icon-save"></i>Save</button>
+        </div>
+    </div>
+</div>
+

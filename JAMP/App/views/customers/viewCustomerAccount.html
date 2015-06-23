@@ -1,0 +1,144 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="previous" href="#/Inventory_Categories">Customer</a>
+            <a class="previous" data-bind="click: goBack">Customer Account List</a>
+            <a class="current" href="#">Customer Account Form</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Customer account details form-->
+<div class="row">
+
+    <div class="large-8 large-centered columns">
+        <div class="con con-border" data-bind="with: customer">
+            <span class="changed-state-tag left" data-bind=" visible: $parent.hasChanges">Changed</span>
+
+            <!-- Customer account form header-->
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-book"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">
+                        <span data-bind="text: customerAccount().accountName"></span>
+                    </h4>
+                </div>
+            </div>
+
+            <!-- Customer account form inputs-->
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Customer Name</label>
+                    <input type="text" data-bind="value: fullName, enable: false">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Balance</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns ">
+                            <input type="text" data-bind="value: customerAccount().amountOwing, valueUpdate: 'afterkeydown', enable: $parent.accountEditable">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="large-6 columns">
+                    <label>Credit Limit</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="value: customerAccount().creditLimit, valueUpdate: 'afterkeydown', enable: $parent.accountEditable">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="large-12 columns">
+                    <label>Payment Dates</label>
+                    <div class="row collapse" >
+                        <div class="small-10 columns">
+                            <input type="text" data-bind="datepicker: customerAccount().paymentDate, datepickerOptions: { format: 'YYYY-MM-DD' }, enable: $parent.accountEditable" placeholder="e.g. 2013-09-10">
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix calendar-icon-center"><i class="icon-calendar"></i></span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Comments</label>
+                    <textarea data-bind="value: customerAccount().comments, valueUpdate: 'afterkeydown', enable: $parent.accountEditable"></textarea>
+                </div>
+            </div>
+
+            <!-- Button options-->
+            <button data-bind="click: $parent.cancel, enable: $parent.canSave">
+                <i class="icon-undo"></i>Cancel</button>
+            <button data-bind="click: $parent.save, enable: $parent.canSave">
+                <i class="icon-save"></i>Save</button>
+            <button data-bind="click: $parent.editAccount">
+                <i class="icon-pencil"></i>Edit</button>
+            <button data-bind="click: $parent.deleteCustomerAccount, disable: $parent.hasChanges">
+                <i class="icon-trash"></i>Delete</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <div class="con con-border">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-money"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Payments</h4>
+                </div>
+            </div>
+
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb40">Employee</th>
+                        <th class="tb30">Amount</th>
+                        <th class="tb30">Date Made</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <table class="table-full-width">
+                <tbody data-bind="foreach: customer().customerAccount().customerPayments()">
+                    <tr>
+                        <td class="tb40" data-bind="text: employee().fullName"></td>
+                        <td class="tb30">R<span data-bind="text: amountPaid"></span></td>
+                        <td class="tb30" data-bind="text: createdDate"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

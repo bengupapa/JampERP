@@ -1,0 +1,130 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <!-- ko with: user -->
+        <h3 class="subheader" data-bind="text: business().businessName"></h3>
+        <!-- /ko -->
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Dashboard</a>
+        </nav>
+    </div>
+</div>
+
+
+<div class="row">
+    <!-- On line users-->
+    <div class="large-6 columns">
+       
+
+         <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon"><i class="icon-paper-clip"></i></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">Hourly Sales Stats</h4>
+                        </div>
+                        <!-- ko if: userSettings().descriptions() == 'On' -->
+                        <div class="con-icon-close infoHourlySales"><i class="icon-info-sign"></i></div>
+                        <!-- /ko -->
+                    </div>
+                    <div id="totalsSalesPerHour" ></div>
+            </div>
+
+    </div>
+
+    <!-- Dash list -->
+    <div class="large-6 columns dash-list">
+        <div class="large-12 columns">
+            <a href="#/Sales_Summary">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon wide-dashlist" data-bind="text: salelist().length"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name">
+                            <h4 class="subheader">No. of Sales</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="large-12 columns">
+            <a href="#/Sales_report">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon wide-dashlist" data-bind="text: incomeSales()"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name"><h4 class="subheader">Income</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="large-12 columns">
+            <a href="#/Sales_report">
+                <div class="con">
+                    <div class="con-header">
+                        <div class="con-icon wide-dashlist" data-bind="text: costSales()"></div>
+                        <div class="con-divider"></div>
+                        <div class="con-name"><h4 class="subheader">Costs</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+         <div class="large-12 columns">
+            
+
+              <div class="con">
+                <div class="con-header">
+                    <div class="con-icon"><i class="icon-group"></i></div>
+                    <div class="con-divider"></div>
+                    <div class="con-name">
+                        <h4 class="subheader">Status</h4>
+                    </div>
+                </div>
+                <table class="table-full-width">
+                    <thead>
+                        <tr>
+                            <th class="tb70">Name</th>
+                            <th class="tb30">Status</th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table-full-width">
+                    <tbody data-bind="foreach: employees">
+                        <tr>
+                            <td class="tb70" data-bind="text: fullName"></td>
+                            <td class="tb30" data-bind="text: online() ? 'Online' : 'Offline', css: { 'tag-red': !online(), 'tag-green': online() }"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+        <div class="large-15 large-centered columns">
+        <div class="large-12 columns">
+               
+        </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

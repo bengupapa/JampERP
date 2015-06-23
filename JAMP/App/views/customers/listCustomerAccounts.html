@@ -1,0 +1,53 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <h3 class="subheader" data-bind="text: title + ': ' + accountList().length"></h3>
+        <nav class="breadcrumbs">
+            <a class="previous" href="#">Summary</a>
+            <a class="current" href="#">Customer Account List</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Search & button options -->
+<div class="row">
+    <div class="large-10 large-centered columns">
+        <div class="row collapse item-search">
+            <div class="small-10 columns">
+                <input type="text" data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Search customer account">
+            </div>
+            <div class="small-2 columns">
+                <span class="postfix"><i class="icon-search"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Customer Account list -->
+<div class="row">
+
+    <!-- ko foreach: filteredItems -->
+    <div class="large-4 columns" data-bind=" visible: $parent.filteredItems">
+        <div class="large-12 columns con item-con">
+            <div class="item-info-con">
+                <h4 class="subheader animated" data-bind="text: customerAccount().accountName"></h4>
+                <p>Balance:    <span>R</span><span data-bind="text: customerAccount().amountOwing"></span></p>
+                <p>Credit Limit:<span>R</span><span data-bind="text: customerAccount().creditLimit"></span></p>
+            </div>
+            <div class="item-edit">
+                <button class="transactionDetails">Transactions</button>
+                <button class="accountDetails">Details</button>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+
+</div>
+<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: emptyList">..No results..</h5>
+</div>
+
+<div class="row wait-load">
+    <h5 class="subheader" data-bind="visible: !filteredItems">Loading ... </h5>
+</div>

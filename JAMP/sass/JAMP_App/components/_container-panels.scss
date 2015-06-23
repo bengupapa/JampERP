@@ -1,0 +1,274 @@
+/* 
+==========================================================
+					  Body containers panels
+==========================================================
+*/
+/* 
+Container Variables
+------------------------------------------------------- */
+//Colours
+$con-bg-colour:				white;
+$con-border-colour:			$colour-grey;
+
+//Hover 
+$con-border-colour-hover:				$colour-light-blue;
+$con-border-shadow-hover:				0px 0px 1px 0px rgba(1, 167, 226, 0.8);
+$con-head-icon-hover:					$colour-light-blue;
+$con-head-icon-close-hover:				$colour-red-notify;
+$con-head-icon-close-border-hover:		$colour-red-notify;
+
+//Container heading
+$con-head-height:					emCalc(45px);
+$con-head-height-mobile:			emCalc(35px);
+$con-head-border-colour:			$colour-light-grey;
+$con-head-divider-colour:			$colour-light-grey;
+$con-head-divider-height:			emCalc(40px);
+$con-head-divider-height-mobile:	emCalc(30px);
+$con-head-icon-width:				43px;
+$con-head-icon-size:				emCalc(30px);
+$con-head-icon-size-mobile:			emCalc(25px);
+
+//Dash list
+$dash-list-number-width:	75px;
+
+//Break point
+$screen-breakpoint-width:	emCalc(767px);
+
+
+/* 
+Main container structure
+------------------------------------------------------- */
+.con {
+  background-color: $con-bg-colour;
+  padding: emCalc(20px);
+  padding-top: emCalc(10px);
+  margin-bottom: emCalc(20px);
+  border: 1px solid;
+  cursor: default;
+  border-color: $con-border-colour;
+  overflow:hidden;
+  &:hover {
+    border-color: $con-border-colour-hover;
+    -webkit-box-shadow: $con-border-shadow-hover;
+    -moz-box-shadow: $con-border-shadow-hover;
+    box-shadow: $con-border-shadow-hover;
+  }
+  &:hover .animated{
+    position: relative;
+    -moz-animation: myfirst;
+    -o-animation: myfirst;
+    -webkit-animation: myfirst;
+    animation: myfirst;
+    -moz-animation-duration: 10s;
+    -o-animation-duration: 10s;
+    animation-duration: 10s;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -moz-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+    -webkit-animation-name: myfirst;
+    -moz-animation-name: myfirst;
+    -o-animation-name: myfirst;
+    animation-name: myfirst;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-play-state: running;
+  }
+  > {
+    :first-child {
+      margin-top: 0;
+    }
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Long name animation
+@keyframes myfirst {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        left: -80px;
+        top: 0px;
+    }
+
+    50% {
+        left: 0px;
+        top: 0px;
+    }
+
+    75% {
+        left: -80px;
+        top: 0px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+@-moz-keyframes myfirst {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        left: -80px;
+        top: 0px;
+    }
+
+    50% {
+        left: 0px;
+        top: 0px;
+    }
+
+    75% {
+        left: -80px;
+        top: 0px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+@-webkit-keyframes myfirst
+{
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        left: -80px;
+        top: 0px;
+    }
+
+    50% {
+        left: 0px;
+        top: 0px;
+    }
+
+    75% {
+        left: -80px;
+        top: 0px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+
+//Container header group
+.con-header {
+  height: $con-head-height;
+  border-bottom: 1px solid $con-head-border-colour;
+  margin-bottom: emCalc(12px);
+  margin-top: emCalc(10px);
+}
+
+//Container header divider
+.con-divider {
+  position: relative;
+  float: left;
+  border-right: 1px solid;
+  border-color: $con-head-divider-colour;
+  height: $con-head-divider-height;
+  width: auto;
+}
+
+//Container header icon
+.con-icon {
+  position: relative;
+  float: left;
+  width: $con-head-icon-width;
+  font-size: $con-head-icon-size;
+  line-height: 1.4;
+}
+
+.con:hover .con-icon {
+  color: $con-head-icon-hover;
+}
+
+//Container header title name
+.con-name {
+  position: relative;
+  float: left;
+  width: auto;
+  padding-left: emCalc(10px);
+}
+
+//Close container button
+.con-icon-close{
+  position: relative;
+  float: right;
+  width: 43px;
+  font-size: 1.875em;
+  &:hover,
+    &:focus{
+	color: $con-head-icon-close-hover;
+	cursor:pointer;
+  }
+}
+
+/* 
+Container for dashboard list of number stats
+------------------------------------------------------- */
+.dash-list {
+  .con-header {
+    border-bottom: 0;
+  }
+  .con {
+    padding: emCalc(17px);
+    cursor: pointer;
+  }
+  .con-icon {
+    width: $dash-list-number-width;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: $screen-breakpoint-width) {
+    .con-icon{
+        font-size:$con-head-icon-size-mobile;
+    }
+    .con-header{
+        height:$con-head-height-mobile;
+    }
+    .con-divider{
+        height:$con-head-divider-height-mobile;
+    }
+    .dash-list .con{
+        padding: emCalc(10px);
+    }
+}
+
+/* 
+Divider dash
+------------------------------------------------------- */
+.divider-small-margin{
+	margin:10px 0;
+}
+.divider-small-centred{
+	margin:10px 0;
+	margin-right: 10px;
+}
+.wide-dashlist{
+	width:120px !important;
+}

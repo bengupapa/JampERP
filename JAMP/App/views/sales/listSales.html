@@ -1,0 +1,91 @@
+﻿<div class="row full-width">
+    <div class="large-12 columns content-name">
+        <a data-bind="click: goBack"><i class="icon-chevron-left pull-left icon-border back-btn" title="Back"></i></a>
+        <h3 class="subheader" data-bind="text: title"></h3>
+        <nav class="breadcrumbs">
+            <a class="current" href="#">Sale List</a>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-4 columns">
+        <label>List By Date</label>
+        <div class="row collapse">
+            <div class="small-10 columns">
+                <input type="text" data-bind="datepicker: date, datepickerOptions: { format: 'YYYY-MM-DD' }" placeholder="e.g. 2013-09-10">
+            </div>
+            <div class="small-2 columns">
+                <span class="postfix calendar-icon-center"><i class="icon-calendar"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-8 columns">
+        <div class="con">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Sales List</h4>
+                </div>
+            </div>
+            <table class="table-full-width">
+                <thead>
+                    <tr>
+                        <th class="tb30">Employee</th>
+                        <th class="tb30">Amount (R)</th>
+                        <th class="tb30">Type</th>
+                    </tr>
+                </thead>
+            </table>
+            <table class="table-full-width">
+                <tbody data-bind="foreach: sortedSales">
+
+                    <tr data-bind="click: $parent.goToSale">
+                        <!-- ko with: employee -->
+                        <td class="tb30" data-bind="text: fullName "></td>
+                        <!-- /ko -->
+                        <td class="tb30 currency-align" data-bind="text: amountCharged().toFixed(2)"></td>
+                        <td class="tb30" data-bind="text: credit() ? 'Credit' : 'Cash'"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="large-4 columns">
+        <div class="con con-border">
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-shopping-cart"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Figures</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Total Income</label>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">R</span>
+                        </div>
+                        <div class="small-8 columns">
+                            <input type="text" readonly="true" data-bind="value: total" />
+                        </div>
+                    </div>
+                    <label>Number of Sales</label>
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <input type="text" readonly="true" data-bind="value: listnumber" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

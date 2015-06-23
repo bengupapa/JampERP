@@ -1,0 +1,30 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <ul>
+        <li><a href="/App/Jamp#/Profile" title="View Profile" >@ViewBag.Name</a></li>
+        <li class="divider"></li>
+        @if (Request.IsAuthenticated)
+                {
+                   
+                    <li style="margin-right:-7px"> &nbsp <img id="navImg" class="imgIcon positioned" src="~/Images/Jamp_logo.svg" /></li>
+                    <li><a href="/App/Jamp">Enter System</a></li>
+                    <li class="divider"></li>  
+                }
+        <li class="has-form">
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()">Sign Out</a>
+            }
+        </li>
+    </ul>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("Register", "BusinessRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li class="divider"></li>
+        <li><a href="/Account/Login">Sign In</a></li>
+    </ul>  
+}
+

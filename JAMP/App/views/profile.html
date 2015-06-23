@@ -1,0 +1,130 @@
+﻿<!-- Page header with breadcrumb navigation-->
+<div class="row">
+    <div class="large-12 columns content-name">
+        <i class="icon-chevron-left pull-left icon-border back-btn" data-bind="click: goBack" title="Back"></i>
+        <!-- ko with: user -->
+        <h3 class="subheader" data-bind="text: fullName"></h3>
+        <!-- /ko -->
+        <nav class="breadcrumbs">
+            <a class="current" href="#" data-bind="text: title"></a>
+        </nav>
+    </div>
+</div>
+<div class="row"></div>
+
+<!-- User Details-->
+
+<div class="row">
+    <div class="small-8 large-3 small-centered large-uncentered columns" data-bind="with: user">
+
+        <div data-bind="if: imageLocation">
+            <img class="profile-pic-large" data-bind="attr: { src: imageLocation }" />
+        </div>
+
+        <div data-bind="ifnot: imageLocation">
+            <img class="profile-pic-large" src="../../Images/ProfilePictures/photo.jpg" />
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns">
+                <a class="small-centered add-remove-btn" href="/Account/ManageProfilePicture"><i class="icon-pencil"></i>Change Photo</a>
+            </div>
+        </div>
+    </div> 
+   
+    <div class="large-8 columns mobileFormat">
+        <div class="con con-border" data-bind="with: user">
+
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-user"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">User Details</h4>
+                </div>
+            </div>
+
+            <div class="row collapse">
+                <label>First Name</label>
+                <input type="text" data-bind="value: firstName, enable: false">
+            </div>
+
+            <div class="row collapse">
+                <label>Last Name</label>
+                <input type="text" data-bind="value: lastName, enable: false">
+            </div>
+
+            <div class="row collapse">
+                <label>Email</label>
+                <div class="small-8 large-10 columns">
+                    <input type="text" data-bind="value: email, enable: false">
+                </div>
+                <div class="small-4 large-2 columns">
+                    <a href="/Account/ManageEmail"><span class="postfix button">Change</span></a>
+                </div>
+            </div>
+
+            <div class="row collapse">
+                <label>Phone No.</label>
+                <input type="text" data-bind="value: contacts, enable: false">
+            </div>
+
+            <a class="button" href="/Account/Manage">
+                <i class="icon-lock"></i>Change Password</a>
+        </div>
+    </div>
+</div>
+
+<!-- Business Details-->
+<div class="row">
+    <div class="large-8 large-offset-3 columns">
+        <div class="con con-border" data-bind="with: user">
+
+            <div class="con-header">
+                <div class="con-icon"><i class="icon-briefcase"></i></div>
+                <div class="con-divider"></div>
+                <div class="con-name">
+                    <h4 class="subheader">Business Details</h4>
+                </div>
+            </div>
+
+            <div class="row collapse">
+                <label>Business Name</label>
+                <input type="text" data-bind="value: business().businessName, enable: false">
+            </div>
+
+            <div class="row collapse">
+                <label>Street Name</label>
+                <input type="text" data-bind="value: business().businessStreet, valueUpdate: 'afterkeydown', enable: $parent.businessEditable">
+            </div>
+
+             <div class="row collapse">
+                <label>Town/City</label>
+                <input type="text" data-bind="value: business().businessCity, valueUpdate: 'afterkeydown', enable: $parent.businessEditable">
+            </div>
+
+             <div class="row collapse">
+                <label>Postal Code</label>
+                <input type="text" data-bind="value: business().businessPostalCode, valueUpdate: 'afterkeydown', enable: $parent.businessEditable">
+            </div>
+
+            <div class="row collapse">
+                <label>Email</label>
+                <input type="text" data-bind="value: business().businessEmail, valueUpdate: 'afterkeydown', enable: $parent.businessEditable">
+            </div>
+
+            <div class="row collapse">
+                <label>Contact Number</label>
+                <input type="text" data-bind="value: business().businessContacts, valueUpdate: 'afterkeydown', enable: $parent.businessEditable">
+            </div>
+
+            <div data-bind="visible: $parent.canEditBusiness">
+                <button data-bind="click: $parent.editBusiness">
+                    <i class="icon-pencil"></i>Edit</button>
+                <button data-bind="click: $parent.cancel, enable: $parent.canSaveBusiness">
+                    <i class="icon-undo"></i>Cancel</button>
+                <button data-bind="click: $parent.save, enable: $parent.canSaveBusiness">
+                    <i class="icon-save"></i>Save</button>
+            </div>
+        </div>
+    </div>
+</div>
